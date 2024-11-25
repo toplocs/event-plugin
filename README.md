@@ -44,3 +44,4 @@ npm run test:unit
 npm run lint
 ```
 # event-plugin
+# chat-plugin
