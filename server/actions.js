@@ -1,8 +1,8 @@
 const prisma = require('./lib/prisma');
 
-async function findEvent(query) {
+async function findChat(query) {
   try {
-    const events = await prisma.event.findMany({
+    const rooms = await prisma.room.findMany({
       where: {
         title: {
           contains: query.title,
@@ -12,108 +12,113 @@ async function findEvent(query) {
       take: 20,
     });
 
-    return { success: events };
+    return { success: rooms };
   } catch (e) {
     console.error(e);
     return { error: e.message };
   }
 }
 
-const createEvent = async (
+const createChat = async (
   formData,
 ) => {
   try {
+    const interests = JSON.parse(formData.interests);
+    const locations = JSON.parse(formData.locations);
+    if (!interests.length && !locations.length) {
+      throw new Error('The room needs at least one reference point');
+    }
     if (formData.title.length < 3) throw new Error('The title is too short');
-    const event = await prisma.event.create({
+    const room = await prisma.room.create({
       data: {
         title: formData.title,
-        description: formData.description,
-        recurring: Number(formData.recurring),
-        limit: Number(formData.limit),
-        date: new Date(formData.date),
-        interests: JSON.parse(formData.interests),
-        locations: JSON.parse(formData.locations),
+        ids: [
+          ...interests.map(x => x.id),
+          ...locations.map(x => x.id)
+        ],
+        interests: interests,
+        locations: locations,
       },
     });
-    console.log(`Event ${event.title} has been created!`)
+    console.log(`Chat room ${room.id} has been created!`);
 
-    return { success: event };
+    return { success: room };
   } catch (e) {
     console.error(e);
     return { error: e.message };
   }
 }
 
-const updateEvent = async (
+const updateChat = async (
   formData,
 ) => {
   try {
-    const event = await prisma.event.update({
+    const room = await prisma.room.update({
       where: {
-        id: formData.eventId,
+        id: formData.roomId,
       },
       data: {
         content: formData.content,
       },
     });
 
-    return { success: event };
+    return { success: room };
   } catch(e) {
     console.error(e);
     return { error: e.message };
   }
 }
 
-const getEventById = async (params) => {
+const getChatById = async (params) => {
   try {
-    const event = await prisma.event.findUnique({
+    const room = await prisma.room.findUnique({
       where: {
         id: params?.id,
       },
     });
 
-    return { success: event };
+    return { success: room };
   } catch(e) {
     console.error(e);
     return { error: e.message };
   }
 }
 
-const getEventPages = async (params) => {
+const getChatRooms = async (params) => {
   try {
-    const events = await prisma.event.findMany({
+    const rooms = await prisma.room.findMany({
       where: {
-        OR: [
-          { interests: { has: params?.prop } },
-          { locations: { has: params?.prop } },
-        ],
-        date: { gte: new Date() }
+        ids: { has: params.prop }
+      },
+      select: {
+        id: true,
+        title: true,
       },
       take: 20,
     });
 
-    return { success: events };
+    return { success: rooms };
   } catch (e) {
     console.error(e);
     return { error: e.message };
   }
 }
 
-const joinEvent = async (params, formData) => {
+const joinChat = async (params, formData) => {
   try {
     const profile = JSON.parse(formData.profile);
     await prisma.$transaction(async (prisma) => {
-      const event = await prisma.event.findUnique({
+      const room = await prisma.room.findUnique({
         where: { id: params.id },
       });
-      if (event.limit > 0 && event.profiles.length >= event.limit) {
+      if (room.limit > 0 && room.profiles.length >= room.limit) {
         throw new Error('Limit has been reached');
       }
-      const exists = event.profiles.some(
+      const exists = room.profiles.some(
         x => x.id === profile.id
       );
       if (!exists) {
-        await prisma.event.update({
+        await prisma.room.update({
           where: { id: params.id },
           data: { profiles: { push: profile } },
         });
@@ -127,17 +132,17 @@ const joinEvent = async (params, formData) => {
   }
 }
 
-const leaveEvent = async (params, formData) => {
+const leaveChat = async (params, formData) => {
   try {
     const profile = JSON.parse(formData.profile);
     await prisma.$transaction(async (prisma) => {
-      const event = await prisma.event.findUnique({
+      const room = await prisma.room.findUnique({
         where: { id: params.id },
       });
-      const updatedProfiles = event.profiles.filter(
+      const updatedProfiles = room.profiles.filter(
         x => x.id !== profile.id,
       );
-      await prisma.event.update({
+      await prisma.room.update({
         where: { id: params.id },
         data: { profiles: { set: updatedProfiles } },
       });
@@ -151,10 +156,10 @@ const leaveEvent = async (params, formData) => {
 }
 
 module.exports = {
-  createEvent,
-  updateEvent,
-  getEventById,
-  getEventPages,
-  joinEvent,
-  leaveEvent,
+  createChat,
+  updateChat,
+  getChatById,
+  getChatRooms,
+  joinChat,
+  leaveChat,
 };

@@ -8,12 +8,11 @@ export default defineConfig({
   plugins: [
     vue(),
     federation({
-        name: 'wiki-plugin',
+        name: 'chat-plugin',
         filename: 'plugin.js',
         exposes: { //add config file for routing etc.
-          './EventListView': './src/views/EventListView.vue',
-          './EventDetailView': './src/views/EventDetailView.vue',
-          './EventCreateView': './src/views/EventCreateView.vue',
+          './ChatView': './src/views/ChatView.vue',
+          './ChatCreateView': './src/views/ChatCreateView.vue',
           './Main': './src/components/Main.vue',
         },
         shared: ['vue']

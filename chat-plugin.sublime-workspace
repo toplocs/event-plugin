@@ -1,0 +1,1160 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"chat",
+				"chatRooms"
+			],
+			[
+				"InterestPlu",
+				"InterestPluginRoutes"
+			],
+			[
+				"INterest",
+				"InterestPluginRoutes"
+			],
+			[
+				"file",
+				"fileURLToPath"
+			],
+			[
+				"re",
+				"retrievedObject"
+			],
+			[
+				"in",
+				"InterestBadge"
+			],
+			[
+				"fetchI",
+				"fetchInterestChildren"
+			],
+			[
+				"wiki",
+				"wikiPage"
+			],
+			[
+				"interes",
+				"interests"
+			],
+			[
+				"remove",
+				"removeInterest"
+			],
+			[
+				"w",
+				"WikiEdit"
+			],
+			[
+				"location",
+				"locationId"
+			],
+			[
+				"loca",
+				"locationId"
+			],
+			[
+				"findInter",
+				"findInterestById"
+			],
+			[
+				"flex",
+				"flex-col"
+			],
+			[
+				"Call",
+				"Callout"
+			],
+			[
+				"Ca",
+				"Callout"
+			],
+			[
+				"selet",
+				"selectedModel"
+			],
+			[
+				"inter",
+				"interestId"
+			],
+			[
+				"fl",
+				"flex-row"
+			],
+			[
+				"L",
+				"LocationBadge"
+			],
+			[
+				"cla",
+				"className"
+			],
+			[
+				"Profile",
+				"ProfileImage"
+			],
+			[
+				"update",
+				"updateUser"
+			],
+			[
+				"too",
+				"Tooltip"
+			],
+			[
+				"pro",
+				"ProfileImage"
+			],
+			[
+				"def",
+				"defaultLocation"
+			],
+			[
+				"ol-",
+				"ol-geolocation"
+			],
+			[
+				"create",
+				"createLocation"
+			],
+			[
+				"selecte",
+				"selectedImage"
+			],
+			[
+				"select",
+				"selectedOption"
+			],
+			[
+				"sele",
+				"selectedOption"
+			],
+			[
+				"pr",
+				"profile"
+			],
+			[
+				"crea",
+				"createProfile"
+			],
+			[
+				"Diamond",
+				"DiamondCard"
+			],
+			[
+				"find",
+				"findUnique"
+			],
+			[
+				"f",
+				"false"
+			],
+			[
+				"pri",
+				"priority"
+			],
+			[
+				"item",
+				"item_ids"
+			],
+			[
+				"Tab",
+				"TableCell"
+			],
+			[
+				"cost",
+				"cost_credits"
+			],
+			[
+				"po",
+				"points_type"
+			],
+			[
+				"ite",
+				"items-center"
+			],
+			[
+				"size",
+				"sizeStyle"
+			],
+			[
+				"convers",
+				"conversationId"
+			],
+			[
+				"user",
+				"userId2"
+			],
+			[
+				"co",
+				"conversationId"
+			],
+			[
+				"conver",
+				"conversationId"
+			],
+			[
+				"Chat",
+				"ChatMessage2"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "src/components/Main.vue",
+			"settings":
+			{
+				"buffer_size": 1857,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/views/ChatCreateView.vue",
+			"settings":
+			{
+				"buffer_size": 3977,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			},
+			"undo_stack":
+			[
+				[
+					5,
+					1,
+					"insert",
+					{
+						"characters": "\n"
+					},
+					"AQAAAHsKAAAAAAAAfAoAAAAAAAAAAAAA",
+					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAHsKAAAAAAAAewoAAAAAAAAAAAAAAADwvw"
+				],
+				[
+					6,
+					1,
+					"paste",
+					null,
+					"AQAAAHwKAAAAAAAAHwwAAAAAAAAAAAAA",
+					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAHwKAAAAAAAAfAoAAAAAAAAAAAAAAADwvw"
+				],
+				[
+					7,
+					1,
+					"insert",
+					{
+						"characters": "\n"
+					},
+					"AQAAAB8MAAAAAAAAIAwAAAAAAAAAAAAA",
+					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAB8MAAAAAAAAHwwAAAAAAAAAAAAAAADwvw"
+				],
+				[
+					8,
+					1,
+					"left_delete",
+					null,
+					"AQAAAB8MAAAAAAAAHwwAAAAAAAABAAAACg",
+					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAACAMAAAAAAAAIAwAAAAAAAAAAAAAAADwvw"
+				],
+				[
+					11,
+					1,
+					"insert",
+					{
+						"characters": "\n"
+					},
+					"AQAAANYJAAAAAAAA1wkAAAAAAAAAAAAA",
+					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAANYJAAAAAAAA1gkAAAAAAAAAAAAAAADwvw"
+				],
+				[
+					12,
+					1,
+					"paste",
+					null,
+					"AQAAANcJAAAAAAAACwoAAAAAAAAAAAAA",
+					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAANcJAAAAAAAA1wkAAAAAAAAAAAAAAADwvw"
+				],
+				[
+					15,
+					1,
+					"insert",
+					{
+						"characters": "\n"
+					},
+					"AQAAAEMOAAAAAAAARA4AAAAAAAAAAAAA",
+					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAEMOAAAAAAAAQw4AAAAAAAAAAAAAAADwvw"
+				],
+				[
+					16,
+					1,
+					"paste",
+					null,
+					"AQAAAEQOAAAAAAAAIw8AAAAAAAAAAAAA",
+					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAEQOAAAAAAAARA4AAAAAAAAAAAAAAADwvw"
+				],
+				[
+					17,
+					1,
+					"insert",
+					{
+						"characters": "\n"
+					},
+					"AQAAACMPAAAAAAAAJA8AAAAAAAAAAAAA",
+					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAACMPAAAAAAAAIw8AAAAAAAAAAAAAAADwvw"
+				],
+				[
+					20,
+					1,
+					"left_delete",
+					null,
+					"AQAAAIQIAAAAAAAAhAgAAAAAAAABAAAAQA",
+					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAIUIAAAAAAAAhQgAAAAAAAAAAAAAAADwvw"
+				],
+				[
+					21,
+					1,
+					"insert",
+					{
+						"characters": ".."
+					},
+					"AgAAAIQIAAAAAAAAhQgAAAAAAAAAAAAAhQgAAAAAAACGCAAAAAAAAAAAAAA",
+					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAIQIAAAAAAAAhAgAAAAAAAAAAAAAAADwvw"
+				],
+				[
+					24,
+					1,
+					"insert",
+					{
+						"characters": ","
+					},
+					"AQAAAF0HAAAAAAAAXgcAAAAAAAAAAAAA",
+					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAF0HAAAAAAAAXQcAAAAAAAAAAAAAAADwvw"
+				],
+				[
+					25,
+					1,
+					"insert",
+					{
+						"characters": " onMo"
+					},
+					"BQAAAF4HAAAAAAAAXwcAAAAAAAAAAAAAXwcAAAAAAABgBwAAAAAAAAAAAABgBwAAAAAAAGEHAAAAAAAAAAAAAGEHAAAAAAAAYgcAAAAAAAAAAAAAYgcAAAAAAABjBwAAAAAAAAAAAAA",
+					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAF4HAAAAAAAAXgcAAAAAAAAAAAAAAADwvw"
+				],
+				[
+					26,
+					1,
+					"insert_completion",
+					{
+						"completion": "onMounted",
+						"format": "text",
+						"keep_prefix": false,
+						"must_insert": false,
+						"trigger": "onMounted"
+					},
+					"AgAAAF8HAAAAAAAAXwcAAAAAAAAEAAAAb25Nb18HAAAAAAAAaAcAAAAAAAAAAAAA",
+					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAGMHAAAAAAAAYwcAAAAAAAAAAAAAAADwvw"
+				],
+				[
+					29,
+					1,
+					"insert",
+					{
+						"characters": "\nif"
+					},
+					"BQAAAIcMAAAAAAAAiAwAAAAAAAAAAAAAiAwAAAAAAACKDAAAAAAAAAAAAACKDAAAAAAAAIwMAAAAAAAAAAAAAIwMAAAAAAAAjQwAAAAAAAAAAAAAjQwAAAAAAACODAAAAAAAAAAAAAA",
+					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAIcMAAAAAAAAhwwAAAAAAAAAAAAAAADwvw"
+				],
+				[
+					30,
+					1,
+					"insert_snippet",
+					{
+						"contents": "($0)"
+					},
+					"AQAAAI4MAAAAAAAAkAwAAAAAAAAAAAAA",
+					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAI4MAAAAAAAAjgwAAAAAAAAAAAAAAADwvw"
+				],
+				[
+					32,
+					1,
+					"insert",
+					{
+						"characters": " "
+					},
+					"AQAAAI4MAAAAAAAAjwwAAAAAAAAAAAAA",
+					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAI4MAAAAAAAAjgwAAAAAAAAAAAAAAADwvw"
+				],
+				[
+					35,
+					1,
+					"insert",
+					{
+						"characters": "succe"
+					},
+					"BQAAAJAMAAAAAAAAkQwAAAAAAAAAAAAAkQwAAAAAAACSDAAAAAAAAAAAAACSDAAAAAAAAJMMAAAAAAAAAAAAAJMMAAAAAAAAlAwAAAAAAAAAAAAAlAwAAAAAAACVDAAAAAAAAAAAAAA",
+					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAJAMAAAAAAAAkAwAAAAAAAAAAAAAAADwvw"
+				],
+				[
+					36,
+					1,
+					"insert_completion",
+					{
+						"completion": "successMessage",
+						"format": "text",
+						"keep_prefix": false,
+						"must_insert": false,
+						"trigger": "successMessage"
+					},
+					"AgAAAJAMAAAAAAAAkAwAAAAAAAAFAAAAc3VjY2WQDAAAAAAAAJ4MAAAAAAAAAAAAAA",
+					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAJUMAAAAAAAAlQwAAAAAAAAAAAAAAADwvw"
+				],
+				[
+					37,
+					1,
+					"insert",
+					{
+						"characters": ".length"
+					},
+					"BwAAAJ4MAAAAAAAAnwwAAAAAAAAAAAAAnwwAAAAAAACgDAAAAAAAAAAAAACgDAAAAAAAAKEMAAAAAAAAAAAAAKEMAAAAAAAAogwAAAAAAAAAAAAAogwAAAAAAACjDAAAAAAAAAAAAACjDAAAAAAAAKQMAAAAAAAAAAAAAKQMAAAAAAAApQwAAAAAAAAAAAAA",
+					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAJ4MAAAAAAAAngwAAAAAAAAAAAAAAADwvw"
+				],
+				[
+					40,
+					1,
+					"insert",
+					{
+						"characters": " "
+					},
+					"AQAAAKYMAAAAAAAApwwAAAAAAAAAAAAA",
+					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAKYMAAAAAAAApgwAAAAAAAAAAAAAAADwvw"
+				],
+				[
+					41,
+					1,
+					"insert",
+					{
+						"characters": "return;"
+					},
+					"BwAAAKcMAAAAAAAAqAwAAAAAAAAAAAAAqAwAAAAAAACpDAAAAAAAAAAAAACpDAAAAAAAAKoMAAAAAAAAAAAAAKoMAAAAAAAAqwwAAAAAAAAAAAAAqwwAAAAAAACsDAAAAAAAAAAAAACsDAAAAAAAAK0MAAAAAAAAAAAAAK0MAAAAAAAArgwAAAAAAAAAAAAA",
+					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAKcMAAAAAAAApwwAAAAAAAAAAAAAAADwvw"
+				],
+				[
+					50,
+					1,
+					"paste",
+					null,
+					"AgAAAIwMAAAAAAAAtAwAAAAAAAAAAAAAtAwAAAAAAAC0DAAAAAAAACIAAABpZiAoc3VjY2Vzc01lc3NhZ2UubGVuZ3RoKSByZXR1cm47",
+					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAK4MAAAAAAAAjAwAAAAAAAAAAAAAAADwvw"
+				]
+			]
+		},
+		{
+			"contents": "<template>\n  <Search\n    placeholder=\"Add some interests ...\"\n    name=\"selectedItem\"\n    :findOptions=\"findInterests\"\n    @selected=\"addInterest\"\n  />\n  <div class=\"mt-2 space-x-1 space-y-1\">\n    <span v-for=\"interest of interests\">\n      <InterestBadge\n        :key=\"interest.id\"\n        :title=\"interest.title\"\n        :remove=\"() => removeInterest(interest)\"\n      />\n    </span>\n  </div>\n</template>\n\n<script setup lang=\"ts\">\nimport axios from 'axios';\nimport { ref } from 'vue';\nimport TextInput from './common/TextInput.vue';\nimport Search from './Search.vue';\nimport InterestBadge from './badges/InterestBadge.vue';\n\nconst props = defineProps({\n  modelValue: {\n    type: Array,\n    required: true,\n  }\n});\nconst emit = defineEmits(['update:modelValue']);\nconst shellURL = import.meta.env.VITE_SHELL_API_URL;\nconst interests = ref(props.modelValue);\n\nconst findInterests = async (title: string) => {\n  try {\n    const response = await axios.get(`${shellURL}/api/interest?title=${title}`);\n\n    return response.data\n  } catch (error) {\n    console.error(error);\n  }\n}\n\nconst addInterest = (selected: Object) => {\n  if (interests.value.includes(selected)) return;\n  interests.value.push(selected);\n  emit('update:modelValue', interests.value);\n}\n\nconst removeInterest = (interest: Object) => {\n  interests.value = interests.value.filter(x => x != interest);\n  emit('update:modelValue', interests.value);\n}\n</script>\n",
+			"file": "src/components/AddInterests.vue",
+			"file_size": 1148,
+			"file_write_time": 133766638997332770,
+			"redo_stack":
+			[
+				[
+					7,
+					1,
+					"paste",
+					null,
+					"AgAAAHwEAAAAAAAACQoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHwEAAA8dGVtcGxhdGU+CiAgPFRleHRJbnB1dAogICAgdHlwZT0idGV4dCIKICAgIG5hbWU9ImludGVyZXN0IgogICAgYXV0b0NvbXBsZXRlPSJpbnRlcmVzdCIKICAgIHBsYWNlaG9sZGVyPSJBZGQgc29tZSBpbnRlcmVzdHMiCiAgICBAa2V5ZG93bi5lbnRlci5wcmV2ZW50PSJhZGRJbnRlcmVzdCIKICAgIHYtbW9kZWw9ImlucHV0IgogIC8+CiAgPGRpdiBjbGFzcz0ibXQtMiBzcGFjZS14LTEgc3BhY2UteS0xIj4KICAgIDxzcGFuIHYtZm9yPSJ0aXRsZSBvZiBpbnRlcmVzdHMiPgogICAgICA8SW50ZXJlc3RCYWRnZQogICAgICAgIDprZXk9InRpdGxlIgogICAgICAgIDp0aXRsZT0idGl0bGUiCiAgICAgICAgOnJlbW92ZT0iKCkgPT4gcmVtb3ZlSW50ZXJlc3QodGl0bGUpIgogICAgICAvPgogICAgPC9zcGFuPgogIDwvZGl2Pgo8L3RlbXBsYXRlPgoKPHNjcmlwdCBzZXR1cCBsYW5nPSJ0cyI+CmltcG9ydCB7IHJlZiB9IGZyb20gJ3Z1ZSc7CmltcG9ydCBUZXh0SW5wdXQgZnJvbSAnLi9jb21tb24vVGV4dElucHV0LnZ1ZSc7CmltcG9ydCBJbnRlcmVzdEJhZGdlIGZyb20gJy4vYmFkZ2VzL0ludGVyZXN0QmFkZ2UudnVlJzsKCmNvbnN0IHByb3BzID0gZGVmaW5lUHJvcHMoewogIG1vZGVsVmFsdWU6IHsKICAgIHR5cGU6IEFycmF5LAogICAgcmVxdWlyZWQ6IHRydWUsCiAgfQp9KTsKY29uc3QgZW1pdCA9IGRlZmluZUVtaXRzKFsndXBkYXRlOm1vZGVsVmFsdWUnXSkKY29uc3QgaW50ZXJlc3RzID0gcmVmKHByb3BzLm1vZGVsVmFsdWUuZmlsdGVyKHggPT4geCAhPSAnJykpOwpjb25zdCBpbnB1dCA9IHJlZignJyk7CgpmdW5jdGlvbiBhZGRJbnRlcmVzdCgpIHsKICBpZiAoaW50ZXJlc3RzLnZhbHVlLmluY2x1ZGVzKGlucHV0LnZhbHVlKSkgcmV0dXJuOwogIGludGVyZXN0cy52YWx1ZS5wdXNoKGlucHV0LnZhbHVlKTsKICBpbnB1dC52YWx1ZSA9ICcnOwogIGVtaXQoJ3VwZGF0ZTptb2RlbFZhbHVlJywgaW50ZXJlc3RzLnZhbHVlKTsKfQoKZnVuY3Rpb24gcmVtb3ZlSW50ZXJlc3QodGl0bGU6IFN0cmluZykgewogIGludGVyZXN0cy52YWx1ZSA9IGludGVyZXN0cy52YWx1ZS5maWx0ZXIoeCA9PiB4ICE9IHRpdGxlKTsKICBlbWl0KCd1cGRhdGU6bW9kZWxWYWx1ZScsIGludGVyZXN0cy52YWx1ZSk7Cn0KPC9zY3JpcHQ+Cg",
+					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAHwEAAAAAAAAfAQAAAAAAAAAAAAAAADwvw"
+				]
+			],
+			"settings":
+			{
+				"buffer_size": 1421,
+				"line_ending": "Unix"
+			},
+			"undo_stack":
+			[
+				[
+					3,
+					1,
+					"left_delete",
+					null,
+					"AQAAAFYDAAAAAAAAVgMAAAAAAAAVAAAALmZpbHRlcih4ID0+IHggIT0gJycp",
+					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAFYDAAAAAAAAawMAAAAAAAAAAAAAAADwvw"
+				]
+			]
+		},
+		{
+			"file": "src/components/AddLocations.vue",
+			"settings":
+			{
+				"buffer_size": 1421,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			},
+			"undo_stack":
+			[
+				[
+					3,
+					1,
+					"left_delete",
+					null,
+					"AQAAAFYDAAAAAAAAVgMAAAAAAAAVAAAALmZpbHRlcih4ID0+IHggIT0gJycp",
+					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAFYDAAAAAAAAawMAAAAAAAAAAAAAAADwvw"
+				]
+			]
+		},
+		{
+			"file": "server/prisma/schema.prisma",
+			"settings":
+			{
+				"buffer_size": 926,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "server/actions.js",
+			"settings":
+			{
+				"buffer_size": 3550,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			},
+			"undo_stack":
+			[
+				[
+					13,
+					2,
+					"left_delete",
+					null,
+					"AgAAAG0CAAAAAAAAbQIAAAAAAAAEAAAAcm9vbWwCAAAAAAAAbAIAAAAAAAABAAAAIA",
+					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAG0CAAAAAAAAcQIAAAAAAAAAAAAAAADwvw"
+				]
+			]
+		},
+		{
+			"file": ".env",
+			"settings":
+			{
+				"buffer_size": 69,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			},
+			"undo_stack":
+			[
+				[
+					3,
+					5,
+					"left_delete",
+					null,
+					"BQAAABIAAAAAAAAAEgAAAAAAAAABAAAAOhEAAAAAAAAAEQAAAAAAAAABAAAAcBAAAAAAAAAAEAAAAAAAAAABAAAAdA8AAAAAAAAADwAAAAAAAAABAAAAdA4AAAAAAAAADgAAAAAAAAABAAAAaA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAATAAAAAAAAABMAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					6,
+					5,
+					"left_delete",
+					null,
+					"BQAAADgAAAAAAAAAOAAAAAAAAAABAAAAOjcAAAAAAAAANwAAAAAAAAABAAAAcDYAAAAAAAAANgAAAAAAAAABAAAAdDUAAAAAAAAANQAAAAAAAAABAAAAdDQAAAAAAAAANAAAAAAAAAABAAAAaA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAA5AAAAAAAAADkAAAAAAAAAAAAAAAAA8L8"
+				]
+			]
+		},
+		{
+			"file": "src/views/ChatView.vue",
+			"settings":
+			{
+				"buffer_size": 1862,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			},
+			"undo_stack":
+			[
+				[
+					3,
+					1,
+					"insert",
+					{
+						"characters": "id"
+					},
+					"AwAAAJcEAAAAAAAAmAQAAAAAAAAAAAAAmAQAAAAAAACYBAAAAAAAAAUAAAB0aXRsZZgEAAAAAAAAmQQAAAAAAAAAAAAA",
+					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAJcEAAAAAAAAnAQAAAAAAAAAAAAAAADwvw"
+				],
+				[
+					8,
+					1,
+					"insert",
+					{
+						"characters": "id"
+					},
+					"AwAAANwEAAAAAAAA3QQAAAAAAAAAAAAA3QQAAAAAAADdBAAAAAAAAAUAAAB0aXRsZd0EAAAAAAAA3gQAAAAAAAAAAAAA",
+					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAANwEAAAAAAAA4QQAAAAAAAAAAAAAAADwvw"
+				]
+			]
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"rein",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"",
+				"Code Folding: Fold Tag Attributes"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/yannik/js/toplocs/chat-plugin",
+		"/Users/yannik/js/toplocs/chat-plugin/.vscode",
+		"/Users/yannik/js/toplocs/chat-plugin/server",
+		"/Users/yannik/js/toplocs/chat-plugin/server/prisma",
+		"/Users/yannik/js/toplocs/chat-plugin/src",
+		"/Users/yannik/js/toplocs/chat-plugin/src/components",
+		"/Users/yannik/js/toplocs/chat-plugin/src/components/badges",
+		"/Users/yannik/js/toplocs/chat-plugin/src/views"
+	],
+	"file_history":
+	[
+		"/Users/yannik/js/toplocs/chat-plugin/src/components/ChatMessage1.vue",
+		"/Users/yannik/js/toplocs/chat-plugin/package.json",
+		"/Users/yannik/js/toplocs/chat-plugin/vite.config.ts",
+		"/Users/yannik/js/toplocs/chat-plugin/server/actions.js",
+		"/Users/yannik/js/toplocs/chat-plugin/src/components/SideBar.vue",
+		"/Users/yannik/js/toplocs/chat-plugin/src/components/Main.vue",
+		"/Users/yannik/js/toplocs/chat-plugin/src/views/ChatView.vue",
+		"/Users/yannik/js/toplocs/chat-plugin/src/views/ChatCreateView.vue",
+		"/Users/yannik/js/toplocs/chat-plugin/src/App.vue",
+		"/Users/yannik/js/toplocs/chat-plugin/src/components/badges/LocationBadge.vue",
+		"/Users/yannik/js/toplocs/chat-plugin/server/socket.js",
+		"/Users/yannik/js/toplocs/chat-plugin/server/prisma/schema.prisma",
+		"/Users/yannik/js/toplocs/chat-plugin/server/api.js",
+		"/Users/yannik/js/toplocs/chat-plugin/src/components/ChatListItem.vue",
+		"/Users/yannik/js/toplocs/chat-plugin/src/socket.ts",
+		"/Users/yannik/js/toplocs/chat-plugin/src/components/ChatList.vue",
+		"/Users/yannik/js/toplocs/chat-plugin/src/components/AddInterests.vue",
+		"/Users/yannik/js/toplocs/chat-plugin/src/components/AddLocations.vue",
+		"/Users/yannik/js/toplocs/chat-plugin/index.html",
+		"/Users/yannik/js/toplocs/chat-plugin/src/components/Search.vue",
+		"/Users/yannik/js/toplocs/chat-plugin/.env",
+		"/Users/yannik/js/toplocs/chat-plugin/src/main.ts",
+		"/Users/yannik/.Trash/ChatList.vue",
+		"/Users/yannik/.Trash/PrivateChatDialog.vue",
+		"/Users/yannik/js/toplocs/chat-plugin/src/components/ChatMessage2.vue",
+		"/Users/yannik/.Trash/socket/public.ts",
+		"/Users/yannik/.Trash/ChatMessage1.vue",
+		"/Users/yannik/.Trash/ChatMessage2.vue",
+		"/Users/yannik/.Trash/ChatPanel.vue",
+		"/Users/yannik/js/toplocs/chat-plugin/src/components/ChatPanel.vue",
+		"/Users/yannik/js/toplocs/chat-plugin/server/.env",
+		"/Users/yannik/js/toplocs/chat-plugin/server/index.js",
+		"/Users/yannik/js/tribelike/.env",
+		"/Users/yannik/js/tribelike/vite.config.ts",
+		"/Users/yannik/js/tribelike/package.json",
+		"/Users/yannik/js/tribelike/server/src/actions/user.ts",
+		"/Users/yannik/js/tribelike/server/src/lib/profiles.ts",
+		"/Users/yannik/js/tribelike/src/App.vue",
+		"/Users/yannik/js/tribelike/public/profiles.json",
+		"/Users/yannik/js/tribelike/src/router/index.ts",
+		"/Users/yannik/js/tribelike/server/.env.default",
+		"/Users/yannik/js/tribelike/src/views/ErrorView.vue",
+		"/Users/yannik/js/tribelike/src/router/plugins.ts",
+		"/Users/yannik/js/tribelike/src/components/NavBar.vue",
+		"/Users/yannik/js/tribelike/src/views/ProfileDetailView.vue",
+		"/Users/yannik/js/tribelike/src/components/SubNav.vue",
+		"/Users/yannik/js/tribelike/src/components/plugins/Plugins.vue",
+		"/Users/yannik/js/tribelike/src/components/plugins/MainPlugin.vue",
+		"/Users/yannik/js/tribelike/src/views/plugin/PluginView.vue",
+		"/Users/yannik/js/tribelike/server/prisma/schema.prisma",
+		"/Users/yannik/js/tribelike/src/components/MyProfileComponent.vue",
+		"/Users/yannik/js/tribelike/src/components/ProfileComponent.vue",
+		"/Users/yannik/js/tribelike/src/views/interest/ChatView.vue",
+		"/Users/yannik/js/tribelike/index.html",
+		"/Users/yannik/js/tribelike/src/components/SelectAvatar.vue",
+		"/Users/yannik/.Trash/dialog/AvatarDialog.vue",
+		"/Users/yannik/js/tribelike/src/components/common/Dialog.vue",
+		"/Users/yannik/js/tribelike/src/components/plugins/chat/Index.vue",
+		"/Users/yannik/js/tribelike/src/views/plugin",
+		"/Users/yannik/js/tribelike/src/components/plugins/Chat.vue",
+		"/Users/yannik/js/tribelike/src/views/TestView.vue",
+		"/Users/yannik/js/tribelike/server/src/api/auth.ts",
+		"/Users/yannik/js/tribelike/src/views/SettingsView.vue",
+		"/Users/yannik/js/tribelike/server/src/lib/auth.ts",
+		"/Users/yannik/js/tribelike/src/views/LandingView.vue",
+		"/Users/yannik/js/tribelike/src/utils/external-component.js",
+		"/Users/yannik/js/tribelike/src/main.ts",
+		"/Users/yannik/js/tribelike/dnode/src/app.js",
+		"/Users/yannik/js/tribelike/dnode/package.json",
+		"/Users/yannik/js/tribelike/dnode/src/components/test.vue",
+		"/Users/yannik/js/tribelike/src/assets/base.css",
+		"/Users/yannik/js/tribelike/dnode/src/app_orbit.js",
+		"/Users/yannik/js/tribelike/dnode/schema/profile.json",
+		"/Users/yannik/js/tribelike/dnode/schema/user.json",
+		"/Users/yannik/js/tribelike/js/package.json",
+		"/Users/yannik/js/tribelike/js/src/app.js",
+		"/Users/yannik/js/tribelike/js/src/config/libp2p.js",
+		"/Users/yannik/js/tribelike/decentral/package.json",
+		"/Users/yannik/js/tribelike/new/tsconfig.json",
+		"/Users/yannik/js/tribelike/new/nodemon.json",
+		"/Users/yannik/js/tribelike/new/package.json",
+		"/Users/yannik/js/tribelike/new/src/app.ts",
+		"/Users/yannik/js/tribelike/server/package.json",
+		"/Users/yannik/js/tribelike/server/tsconfig.json",
+		"/Users/yannik/js/tribelike/server/tsconfig_1.json",
+		"/Users/yannik/js/tribelike/src/views/InterestDetailView.vue",
+		"/Users/yannik/js/tribelike/new/src/config/libp2p.js",
+		"/Users/yannik/js/tribelike/server/src/actions/interest.ts",
+		"/Users/yannik/js/tribelike/server/src/actions/location.ts",
+		"/Users/yannik/js/tribelike/src/views/location/InfoView.vue",
+		"/Users/yannik/js/tribelike/src/views/interest/InfoView.vue",
+		"/Users/yannik/js/tribelike/src/components/list/ActivityListItem.vue",
+		"/Users/yannik/js/tribelike/src/views/ProfileListView.vue",
+		"/Users/yannik/js/tribelike/src/views/ProfileCreateView.vue",
+		"/Users/yannik/js/tribelike/src/components/list/ProfileListItem.vue",
+		"/Users/yannik/js/tribelike/src/components/search/Index.vue",
+		"/Users/yannik/js/tribelike/src/components/search/FindLocation.vue",
+		"/Users/yannik/js/tribelike/src/components/search/FindInterest.vue",
+		"/Users/yannik/js/tribelike/src/views/LocationDetailView.vue",
+		"/Users/yannik/js/tribelike/src/components/plugins/wiki/views/WikiPageView.vue",
+		"/Users/yannik/js/tribelike/src/views/location/WikiView.vue",
+		"/Users/yannik/js/tribelike/server/src/api/plugins/wiki.ts",
+		"/Users/yannik/js/tribelike/server/src/actions/wiki.ts",
+		"/Users/yannik/js/tribelike/src/components/common/IconButton.vue",
+		"/Users/yannik/js/tribelike/src/components/common/Divider.vue",
+		"/Users/yannik/js/tribelike/src/components/search/FindMixed.vue",
+		"/Users/yannik/js/tribelike/src/views/interest/WikiView.vue",
+		"/Users/yannik/js/tribelike/src/components/plugins/wiki/Index.vue",
+		"/Users/yannik/js/tribelike/src/components/plugins/wiki/WikiListItem.vue",
+		"/Users/yannik/js/tribelike/src/components/plugins/wiki/views/WikiCreateView.vue",
+		"/Users/yannik/js/tribelike/src/components/plugins/wiki/WikiEdit.vue",
+		"/Users/yannik/js/tribelike/src/components/plugins/wiki/views/WikiEditView.vue",
+		"/Users/yannik/js/tribelike/src/components/plugins/wiki/WikiCreate.vue",
+		"/Users/yannik/js/tribelike/src/components/dialog/ProfileAddDialog.vue",
+		"/Users/yannik/js/tribelike/src/components/common/Dropdown.vue",
+		"/Users/yannik/js/tribelike/server/src/app.ts",
+		"/Users/yannik/js/tribelike/src/views/InterestCreateView.vue",
+		"/Users/yannik/js/tribelike/src/components/AddInterestButton.vue",
+		"/Users/yannik/js/tribelike/src/views/LocationCreateView.vue",
+		"/Users/yannik/js/tribelike/server/src/actions/activity.ts",
+		"/Users/yannik/js/tribelike/server/src/actions/profile.ts",
+		"/Users/yannik/js/tribelike/server/src/actions/sql/profile.ts",
+		"/Users/yannik/js/tribelike/server/.env",
+		"/Users/yannik/js/tribelike/server/src/api/profile.ts",
+		"/Users/yannik/js/tribelike/server/src/api/interest.ts",
+		"/Users/yannik/js/tribelike/src/components/FindMixed.vue",
+		"/Users/yannik/js/tribelike/src/components/FindInterest.vue",
+		"/Users/yannik/js/tribelike/src/views/location/ActivityView.vue"
+	],
+	"find":
+	{
+		"height": 39.0
+	},
+	"find_in_files":
+	{
+		"height": 101.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"user.id",
+			"wiki",
+			"chat",
+			".chat",
+			"event",
+			"Event",
+			"Interest",
+			"interest",
+			"event"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"chat",
+			"room",
+			".room",
+			"chat",
+			"Chat",
+			"Location",
+			"location",
+			"chat"
+		],
+		"reverse": false,
+		"scrollbar_highlights": true,
+		"show_context": true,
+		"use_buffer2": true,
+		"use_gitignore": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "src/components/Main.vue",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1857,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								677,
+								681
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/vue-syntax-highlight-master/vue.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"stack_multiselect": false,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "src/views/ChatCreateView.vue",
+					"selected": true,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3977,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3933,
+								3709
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/vue-syntax-highlight-master/vue.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1874.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"stack_multiselect": false,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "src/components/AddInterests.vue",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1421,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								1421
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/vue-syntax-highlight-master/vue.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"stack_multiselect": false,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "src/components/AddLocations.vue",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1421,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								1421
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/vue-syntax-highlight-master/vue.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"stack_multiselect": false,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "server/prisma/schema.prisma",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 926,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								668,
+								606
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"stack_multiselect": false,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "server/actions.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3550,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1918,
+								1867
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"stack_multiselect": false,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": ".env",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 69,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								52,
+								52
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"stack_multiselect": false,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "src/views/ChatView.vue",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1862,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1246,
+								1246
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/vue-syntax-highlight-master/vue.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"stack_multiselect": false,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 27.0
+	},
+	"input":
+	{
+		"height": 39.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "chat-plugin.sublime-project",
+	"replace":
+	{
+		"height": 70.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 221.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

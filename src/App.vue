@@ -1,9 +1,7 @@
 <template>
-  <EventListView />
+  <ChatView />
 
-  <EventDetailView />
-
-  <EventCreateView />
+  <ChatCreateView />
 </template>
 
 <script setup lang="ts">
@@ -11,13 +9,15 @@ import './assets/main.css';
 import axios from 'axios';
 import { ref, inject, provide } from 'vue';
 import { useRoute } from 'vue-router';
-import EventListView from './views/EventListView.vue';
-import EventDetailView from './views/EventDetailView.vue';
-import EventCreateView from './views/EventCreateView.vue';
+import ChatView from './views/ChatView.vue';
+import ChatCreateView from './views/ChatCreateView.vue';
 
 const apiURL = import.meta.env.VITE_API_URL;
-const tab = ref('Events');
-const interest = ref({ title: 'Programmieren' });
+const tab = ref('Chat');
+const interest = ref({
+  id: '9138e908-b6e3-4bfa-b34f-960a0e703500',
+  title: 'Test'
+});
 const location = ref(null);
 const profile = ref({
   id: 'test',

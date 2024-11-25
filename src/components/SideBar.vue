@@ -1,6 +1,17 @@
 <template>
-  <div className="mb-4 min-w-[200px]">
-
+  <div className="ml-4 min-w-[150px]">
+    <Title>Chat rooms:</Title>
+    <ChatListItem
+      v-for="room of chatRooms"
+      :key="room.id"
+      :title="room.title"
+      @click="() => selectChatRoom(room.id)"
+    />
+    <router-link
+      :to="href"
+      class="flex items-center p-2 w-full border-t border-gray-100 dark:border-gray-700 hover:bg-blue-50 text-blue-500 dark:hover:bg-gray-800 transition duration-150 ease-in-out cursor-pointer"
+    > New chat room
+    </router-link>
   </div>
 </template>
 
@@ -10,9 +21,10 @@ import axios from 'axios';
 import { ref, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
 import Title from './common/Title.vue';
+import ChatListItem from './ChatListItem.vue';
 
 const props = defineProps({
-  wikiPages: {
+  chatRooms: {
     type: Array,
     default: [],
   },
@@ -21,9 +33,9 @@ const props = defineProps({
     default: '',
   }
 });
-const emit = defineEmits(['selectWikiPage']);
+const emit = defineEmits(['selectChatRoom']);
 
-const selectWikiPage = (id: String) => {
-  emit('selectWikiPage', id);
+const selectChatRoom = (id: String) => {
+  emit('selectChatRoom', id);
 }
 </script>
