@@ -1,7 +1,14 @@
-# Event Plugin for Tribelike (Pure P2P)
+# Event Plugin for Tribelike (Pure P2P) 🎉
+
+**Status**: ✅ Successfully deployed as the **first pure P2P plugin** for Tribelike!
 
 ## Overview
 A pure peer-to-peer event management plugin for Tribelike. Create, join, and manage events without any backend server - just Gun.js and the community.
+
+### Live Demo
+- **Production**: https://tribelike.shniq.dev/plugins/event-plugin/
+- **Branch**: `event-plugin-p2p`
+- **Deployed**: July 3, 2025
 
 ## Features
 - 📅 **Event Creation**: Schedule events with date/time picker
@@ -65,6 +72,12 @@ pnpm build
 
 Output will be in `dist/` directory.
 
+### Build with Custom Base Path
+For deployment under a subpath:
+```bash
+PLUGIN_BASE_PATH="/plugins/event-plugin/" pnpm build
+```
+
 ## Integration with Tribelike
 
 ### Module Federation Exposes
@@ -117,6 +130,27 @@ const unsubAttendees = subscribeToAttendees(eventId, (attendees) => {
 })
 ```
 
+## Deployment
+
+### GitHub Actions Integration
+The plugin is automatically built and deployed with Tribelike:
+1. Plugin is cloned to isolated environment
+2. Dependencies installed with npm
+3. Built with correct base path
+4. Deployed to `/plugins/event-plugin/`
+
+### Manual Registration
+If not auto-registered, add to Gun:
+```javascript
+gun.get('plugins').set({
+  id: 'event-plugin',
+  name: 'Events (P2P)',
+  url: '/plugins/event-plugin/plugin.js',
+  version: '1.0.0',
+  enabled: true
+})
+```
+
 ## Differences from Old Plugin
 - **No Backend**: Pure P2P with Gun.js
 - **No axios**: All data operations via Gun
@@ -132,6 +166,17 @@ const unsubAttendees = subscribeToAttendees(eventId, (attendees) => {
 - [ ] Photo sharing
 - [ ] Location map integration
 - [ ] iCal export
+
+## Key Achievements 🏆
+- **First Pure P2P Plugin**: Pioneering true decentralized plugins
+- **No Backend Required**: 100% client-side with Gun.js
+- **GitHub Actions Deployment**: Automated build & deploy pipeline
+- **Module Federation**: Dynamic loading in main app
+- **TypeScript + Vue 3**: Modern tech stack
+- **Real Production Deployment**: Live at tribelike.shniq.dev
+
+## Development Story
+This plugin started as a confused repository that went through multiple identity changes (wiki → event → chat). In July 2025, we cleaned it up and created the `event-plugin-p2p` branch, making it the first plugin to achieve Tribelike's vision of pure P2P functionality.
 
 ## License
 Same as Tribelike main project
