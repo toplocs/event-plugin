@@ -1,0 +1,92 @@
+name: Deploy Client to GitHub Pages
+
+on:
+  push:
+    branches: [gun]
+  workflow_dispatch:
+    inputs:
+      deployment_mode:
+        description: 'Deployment Mode'
+        required: true
+        type: choice
+        default: 'with-plugins'
+        options:
+          - 'simple'
+          - 'with-plugins'
+          - 'plugins-only'
+      include_event_plugin:
+        description: 'Include Event Plugin'
+        required: false
+        type: boolean
+        default: true
+      event_plugin_branch:
+        description: 'Event Plugin Branch'
+        required: false
+        type: string
+        default: 'event-plugin-p2p'
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+          
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'pnpm'
+          
+      - name: Install dependencies
+        run: pnpm install
+        
+      - name: Build project
+        if: github.event.inputs.deployment_mode != 'plugins-only'
+        run: pnpm build
+        
+      # Include plugins for push events or when selected
+      - name: Build and include Event Plugin
+        if: |
+          github.event_name == 'push' || 
+          (github.event.inputs.deployment_mode == 'with-plugins' && github.event.inputs.include_event_plugin == 'true')
+        run: |
+          echo "📦 Building Event Plugin..."
+          git clone -b ${{ github.event.inputs.event_plugin_branch || 'event-plugin-p2p' }} \
+            https://github.com/toplocs/event-plugin.git temp-event-plugin
+          cd temp-event-plugin
+          pnpm install
+          pnpm build-only
+          cd ..
+          mkdir -p server/dist/views/plugins/event-plugin
+          cp -r temp-event-plugin/dist/* server/dist/views/plugins/event-plugin/
+          
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+        
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./server/dist/views
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

@@ -1,0 +1,9 @@
+[build]
+  command = "pnpm install && pnpm build-only"
+  publish = "dist"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
+    Access-Control-Allow-Methods = "GET, OPTIONS"

@@ -1,0 +1,40 @@
+name: Deploy Event Plugin
+
+on:
+  push:
+    branches: [event-plugin-p2p]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
+          
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'pnpm'
+          
+      - name: Install dependencies
+        run: pnpm install
+        
+      - name: Build plugin
+        run: pnpm build-only
+        
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          
+      - name: Upload plugin artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: event-plugin-dist
+          path: dist/
