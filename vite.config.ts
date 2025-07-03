@@ -5,6 +5,7 @@ import federation from "@originjs/vite-plugin-federation";
 import topLevelAwait from 'vite-plugin-top-level-await';
 
 export default defineConfig({
+  base: process.env.PLUGIN_BASE_PATH || './',
   plugins: [
     vue(),
     federation({
