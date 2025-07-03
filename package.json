@@ -1,5 +1,5 @@
 {
-  "name": "wiki-plugin",
+  "name": "event-plugin",
   "version": "1.0.0",
   "private": true,
   "type": "module",
@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "@heroicons/vue": "^2.1.5",
-    "axios": "^1.7.7",
+    "gun": "^0.2020.1240",
     "vite-plugin-top-level-await": "^1.4.4",
     "vue": "^3.5.12",
     "vue-router": "^4.4.5",

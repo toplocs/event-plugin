@@ -12,8 +12,8 @@
           <Callout v-if="successMessage" color="green">
             {{ successMessage }}
           </Callout>
-          <Callout v-if="errorMessage" color="red">
-            {{ errorMessage }}
+          <Callout v-if="error" color="red">
+            {{ error }}
           </Callout>
 
           <div className="mb-2">
@@ -64,6 +64,8 @@
               name="title"
               autoComplete="title"
               placeholder="The event title"
+              v-model="title"
+              required
             />
           </div>
 
@@ -80,6 +82,8 @@
               name="description"
               autoComplete="description"
               placeholder="The event description"
+              v-model="description"
+              required
             />
           </div>
 
@@ -95,6 +99,7 @@
               name="limit"
               autoComplete="limit"
               :min="0"
+              v-model="limit"
             />
           </div>
 
@@ -119,8 +124,10 @@
           <div class="mt-2 space-x-2">
             <button
               type="submit"
-              class="px-4 py-2 rounded font-semibold transition-colors duration-200 bg-green-500 hover:bg-green-600 text-white"
-            > Create
+              class="px-4 py-2 rounded font-semibold transition-colors duration-200 bg-green-500 hover:bg-green-600 text-white disabled:opacity-50"
+              :disabled="loading"
+            > 
+              {{ loading ? 'Creating...' : 'Create' }}
             </button>
           </div>
         </form>
@@ -132,13 +139,11 @@
 <script setup lang="ts">
 import '../assets/main.css';
 import { options } from '../assets/recursion';
-import axios from 'axios';
 import { ref, inject } from 'vue';
-import { useRoute } from 'vue-router';
+import { useRouter } from 'vue-router';
 import Datepicker from 'vue3-datepicker';
 import Card from '../components/common/Card.vue';
 import Container from '../components/common/Container.vue';
-import Sidebar from '../components/SideBar.vue';
 import Title from '../components/common/Title.vue';
 import Callout from '../components/common/Callout.vue';
 import TextInput from '../components/common/TextInput.vue';
@@ -147,6 +152,8 @@ import SelectInput from '../components/common/SelectInput.vue';
 import TextArea from '../components/common/TextArea.vue';
 import AddInterests from '../components/AddInterests.vue';
 import AddLocations from '../components/AddLocations.vue';
+import { useEventGun } from '../composables/useEventGun';
+import { getGunInstance } from '../services/gun';
 
 const props = defineProps({
   interest: {
@@ -158,30 +165,63 @@ const props = defineProps({
     default: '',
   }
 });
-const apiURL = import.meta.env.VITE_API_URL;
+
+// Router
+const router = useRouter();
+
+// Injected from main app
+const profile = inject('profile', ref(null));
+const sphereId = inject('sphereId', ref('default'));
+
+// Initialize Gun
+const gun = getGunInstance();
+const { createEvent, loading, error } = useEventGun(gun, sphereId.value);
+
+// Form state
 const form = ref<HTMLFormElement | null>(null);
-const interests = ref([props.interest]);
-const locations = ref([props.location]);
+const title = ref('');
+const description = ref('');
+const interests = ref(props.interest ? [props.interest] : []);
+const locations = ref(props.location ? [props.location] : []);
 const picked = ref(new Date());
 const recurring = ref(1);
+const limit = ref(0);
 const successMessage = ref('');
-const errorMessage = ref('');
 
+// Form submission
 const onSubmit = async () => {
+  if (!profile.value) {
+    error.value = 'Please login to create events';
+    return;
+  }
+  
+  if (!title.value || !description.value) {
+    error.value = 'Please fill in all required fields';
+    return;
+  }
+  
   try {
-    const formData = new FormData(form.value ?? undefined);
-    formData.set('date', picked.value);
-    formData.append('interests', JSON.stringify(interests.value));
-    formData.append('locations', JSON.stringify(locations.value));
-    const response = await axios.post(`/api/event`, formData);
-    successMessage.value = 'The event was created successfully!';
+    const eventData = {
+      title: title.value,
+      description: description.value,
+      date: picked.value.toISOString(),
+      recurring: recurring.value,
+      limit: limit.value,
+      interests: interests.value.filter(Boolean),
+      locations: locations.value.filter(Boolean)
+    };
     
-    return response.data;
-  } catch (error) {
-    console.error(error);
-    errorMessage.value = error.response.data;
+    const eventId = await createEvent(eventData);
+    successMessage.value = 'Event created successfully!';
+    
+    // Redirect to event detail page after 1 second
+    setTimeout(() => {
+      router.push(`/event/${eventId}`);
+    }, 1000);
+    
+  } catch (err) {
+    console.error('Failed to create event:', err);
+    // Error is already set by composable
   }
 }
-
-axios.defaults.baseURL = apiURL;
 </script>

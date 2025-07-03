@@ -61,7 +61,6 @@
 
 <script setup lang="ts">
 import { getRecursion } from '../assets/recursion';
-import axios from 'axios';
 import { ref, computed } from 'vue';
 import LocationBadge from '@/components/badges/LocationBadge.vue';
 import InterestBadge from '@/components/badges/InterestBadge.vue';
@@ -70,11 +69,11 @@ import ProfileImage from '@/components/common/ProfileImage.vue';
 
 const props = defineProps({
   event: {
-    type: Object,
+    type: Object as () => any,
     required: true,
   },
   profile: {
-    type: Object,
+    type: Object as () => any,
     required: true,
   }
 });
@@ -90,16 +89,10 @@ const joined = computed(() =>
   props.event.profiles?.some(x => x.id === props.profile?.id)
 );
 
-const joinEvent = async () => {
-  try {
-    const formData = new FormData();
-    formData.append('profile', JSON.stringify(props.profile));
-    const response = await axios.post(`/api/event/join/${props.event.id}`, formData);
-    props.event.profiles.push(props.profile);
-    
-    return response.data;
-  } catch (error) {
-    console.error(error);
-  }
+const joinEvent = async (e: Event) => {
+  e.preventDefault();
+  e.stopPropagation();
+  // Join functionality will be handled by parent component
+  console.log('Join event:', props.event.id);
 }
 </script>

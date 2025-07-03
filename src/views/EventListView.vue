@@ -12,7 +12,7 @@
         </router-link>
       </div>
       <EventPlugin
-        :events="events"
+        :events="upcomingEvents"
         :profile="profile"
       />
     </Card>
@@ -21,21 +21,33 @@
 
 <script setup lang="ts">
 import '../assets/main.css';
-import axios from 'axios';
-import { ref, inject, computed, onMounted } from 'vue';
+import { ref, inject, computed, onMounted, onUnmounted } from 'vue';
 import { PlusIcon } from '@heroicons/vue/24/outline';
 import Container from '../components/common/Container.vue';
 import Card from '../components/common/Card.vue';
 import Title from '../components/common/Title.vue';
 import IconButton from '../components/common/IconButton.vue';
 import EventPlugin from '../components/Main.vue';
+import { useEventGun } from '../composables/useEventGun';
+import { getGunInstance } from '../services/gun';
 
-const apiURL = import.meta.env.VITE_API_URL;
-const interest = inject('interest');
-const location = inject('location')
-const profile = inject('profile');
-const tab = inject('tab');
-const events = ref([]);
+// Injected from main app
+const interest = inject('interest', ref(null));
+const location = inject('location', ref(null));
+const profile = inject('profile', ref(null));
+const tab = inject('tab', ref('Events'));
+const sphereId = inject('sphereId', ref('default'));
+
+// Initialize Gun
+const gun = getGunInstance();
+const { 
+  upcomingEvents, 
+  subscribeToEvents, 
+  loading, 
+  error 
+} = useEventGun(gun, sphereId.value);
+
+// Create href for new event
 const href = computed(() => {
   const params = new URLSearchParams();
   if (interest.value) params.append('interest', interest.value?.title);
@@ -44,22 +56,24 @@ const href = computed(() => {
   return `/event/create${params.toString() ? '?' + params.toString() : ''}`;
 });
 
-const fetchEvents = async (prop: String) => {
-  try {
-    const response = await axios.get(`/api/event/pages/${prop}`);
+// Subscribe to events
+let unsubscribe: (() => void) | null = null;
 
-    return response.data;
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-onMounted(async () => {
-  events.value = await fetchEvents(
-    interest.value?.title || location.value?.title
-  );
+onMounted(() => {
   tab.value = 'Events';
+  
+  // Subscribe with filters if available
+  const filter: any = {};
+  if (interest.value?.title) filter.interest = interest.value.title;
+  if (location.value?.title) filter.location = location.value.title;
+  
+  unsubscribe = subscribeToEvents(filter);
 });
 
-axios.defaults.baseURL = apiURL;
+onUnmounted(() => {
+  // Clean up subscription
+  if (unsubscribe) {
+    unsubscribe();
+  }
+});
 </script>

@@ -8,13 +8,13 @@ export default defineConfig({
   plugins: [
     vue(),
     federation({
-        name: 'wiki-plugin',
+        name: 'event-plugin',
         filename: 'plugin.js',
-        exposes: { //add config file for routing etc.
+        exposes: {
+          './Main': './src/PluginMain.vue',
           './EventListView': './src/views/EventListView.vue',
           './EventDetailView': './src/views/EventDetailView.vue',
           './EventCreateView': './src/views/EventCreateView.vue',
-          './Main': './src/components/Main.vue',
         },
         shared: ['vue']
     }),
@@ -35,7 +35,7 @@ export default defineConfig({
     'process.env': {},
   },*/
   build: {
-    outDir: './server/views',
+    outDir: './dist',
     /*lib: {
       entry: 'src/main.ts', // Entry point for the plugin
       name: 'ChatPlugin',

@@ -1,7 +1,7 @@
 <template>
   <Container>
     <div class="w-full">
-      <Card className="space-y-4">
+      <Card className="space-y-4" v-if="event">
         <div class="flex">
           <div class="space-y-1">
             <div class="w-16 h-16 flex-shrink-0 flex flex-col justify-center items-center border-2 rounded-md mr-4 dark:text-gray-300">
@@ -30,7 +30,7 @@
                   :icon="MinusIcon"
                   tooltipText="Leave the event"
                   className="text-red-500 dark:text-red-400"
-                  @click="leaveEvent"
+                  @click="handleLeaveEvent"
                 />
               </div>
 
@@ -54,6 +54,7 @@
               <div class="flex flex-wrap gap-2">
                 <InterestBadge
                   v-for="interest in event?.interests"
+                  :key="interest"
                   :title="interest"
                 />
               </div>
@@ -66,6 +67,7 @@
               <div class="flex flex-wrap gap-2">
                 <LocationBadge
                   v-for="location in event?.locations"
+                  :key="location"
                   :title="location"
                 />
               </div>
@@ -77,14 +79,15 @@
               </h2>
               <div class="flex flex-wrap gap-2">
                 <router-link
-                  v-for="profile of event?.profiles"
-                  :to="`/profile/${profile.id}`"
+                  v-for="attendee of attendees"
+                  :key="attendee.userId"
+                  :to="`/profile/${attendee.profile.id}`"
                   class="cursor-pointer"
                 >
                   <ProfileImage
                     size="medium"
-                    :src="profile.image"
-                    :tooltipText="profile.username"
+                    :src="attendee.profile.image"
+                    :tooltipText="attendee.profile.username"
                   />
                 </router-link>
               </div>
@@ -94,12 +97,22 @@
               <button
                 v-if="!joined"
                 class="p-4 rounded font-semibold transition-colors duration-200 bg-green-500 hover:bg-green-600 text-white"
-                @click="joinEvent"
-              > Join the event
+                @click="handleJoinEvent"
+                :disabled="loading"
+              > 
+                {{ loading ? 'Joining...' : 'Join the event' }}
               </button>
             </div>
           </div>
         </div>
+      </Card>
+      
+      <Card v-else-if="loading" className="text-center">
+        <p>Loading event...</p>
+      </Card>
+      
+      <Card v-else-if="error" className="text-center text-red-500">
+        <p>{{ error }}</p>
       </Card>
     </div>
   </Container>
@@ -108,8 +121,7 @@
 <script setup lang="ts">
 import '../assets/main.css';
 import { getRecursion } from '../assets/recursion';
-import axios from 'axios';
-import { ref, inject, computed, onMounted } from 'vue';
+import { ref, inject, computed, onMounted, onUnmounted, watch } from 'vue';
 import { UsersIcon, MinusIcon } from '@heroicons/vue/24/outline';
 import { useRoute } from 'vue-router';
 import Container from '@/components/common/Container.vue';
@@ -120,6 +132,8 @@ import IconButton from '@/components/common/IconButton.vue';
 import LocationBadge from '@/components/badges/LocationBadge.vue';
 import InterestBadge from '@/components/badges/InterestBadge.vue';
 import StatusBadge from '@/components/badges/StatusBadge.vue';
+import { useEventGun } from '../composables/useEventGun';
+import { getGunInstance } from '../services/gun';
 
 const props = defineProps({
   id: {
@@ -127,11 +141,30 @@ const props = defineProps({
     default: '',
   },
 })
-const apiURL = import.meta.env.VITE_API_URL;
-const route = useRoute();
+
+// Injected from main app
+const profile = inject('profile', ref(null));
+const sphereId = inject('sphereId', ref('default'));
+
+// Initialize Gun
+const gun = getGunInstance();
+const { 
+  getEvent,
+  joinEvent,
+  leaveEvent,
+  subscribeToAttendees,
+  isAttending,
+  loading,
+  error 
+} = useEventGun(gun, sphereId.value);
+
+// Component state
 const event = ref(null);
-const profile = inject('profile');
-const eventDate = computed(() => new Date(event.value?.date));
+const attendees = ref<any[]>([]);
+const joined = ref(false);
+
+// Computed properties
+const eventDate = computed(() => event.value ? new Date(event.value.date) : null);
 const eventDay = computed(() => eventDate.value?.getDate());
 const eventMonth = computed(() => 
   eventDate.value?.toLocaleString('default', { month: 'short' })
@@ -139,55 +172,75 @@ const eventMonth = computed(() =>
 const eventTime = computed(() => 
   eventDate.value?.toLocaleTimeString('default', { hour: '2-digit', minute: '2-digit' })
 );
-const joined = computed(() => 
-  event.value?.profiles.some(x => x.id === profile.value?.id)
-);
 const tooltiptext = computed(() => {
-  if (!event?.limit) return `${event.value?.profiles.length}`;
-  return `${event.value?.profiles.length} / ${event?.limit}`;
+  if (!event.value?.limit) return `${attendees.value.length}`;
+  return `${attendees.value.length} / ${event.value.limit}`;
 })
 
-const joinEvent = async () => {
+// Event handlers
+const handleJoinEvent = async () => {
+  if (!profile.value) {
+    error.value = 'Please login to join events';
+    return;
+  }
+  
   try {
-    const formData = new FormData();
-    formData.append('profile', JSON.stringify(profile.value));
-    const response = await axios.post(`/api/event/join/${event.value?.id}`, formData);
-    event.value?.profiles.push(profile.value);
+    await joinEvent(props.id, profile.value);
+    joined.value = true;
+  } catch (err) {
+    console.error('Failed to join event:', err);
+  }
+}
+
+const handleLeaveEvent = async () => {
+  try {
+    await leaveEvent(props.id);
+    joined.value = false;
+  } catch (err) {
+    console.error('Failed to leave event:', err);
+  }
+}
+
+// Subscriptions
+let unsubscribeAttendees: (() => void) | null = null;
+
+const loadEvent = async () => {
+  try {
+    event.value = await getEvent(props.id);
     
-    return response.data;
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-const leaveEvent = async () => {
-  try {
-    const formData = new FormData();
-    formData.append('profile', JSON.stringify(profile.value));
-    const response = await axios.post(`/api/event/leave/${event.value?.id}`, formData);
-    event.value.profiles = event.value.profiles.filter(
-      x => x.id != profile.value?.id
-    );
+    // Check if current user is attending
+    if (profile.value) {
+      joined.value = await isAttending(props.id);
+    }
     
-    return response.data;
-  } catch (error) {
-    console.error(error);
+    // Subscribe to attendees
+    if (unsubscribeAttendees) unsubscribeAttendees();
+    unsubscribeAttendees = subscribeToAttendees(props.id, (newAttendees) => {
+      attendees.value = newAttendees;
+      
+      // Update joined status
+      if (profile.value) {
+        joined.value = newAttendees.some(a => a.userId === profile.value.id);
+      }
+    });
+  } catch (err) {
+    error.value = err instanceof Error ? err.message : 'Failed to load event';
   }
 }
 
-const fetchEventById = async (id: string) => {
-  try {
-    const response = await axios.get(`/api/event/byId/${id}`);
-
-    return response.data;
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-onMounted(async () => {
-  event.value = await fetchEventById(props.id);
+// Lifecycle
+onMounted(() => {
+  loadEvent();
 });
 
-axios.defaults.baseURL = apiURL;
+onUnmounted(() => {
+  if (unsubscribeAttendees) {
+    unsubscribeAttendees();
+  }
+});
+
+// Watch for id changes
+watch(() => props.id, () => {
+  loadEvent();
+});
 </script>
