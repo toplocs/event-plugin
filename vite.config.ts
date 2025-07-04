@@ -12,10 +12,7 @@ export default defineConfig({
         name: 'event-plugin',
         filename: 'plugin.js',
         exposes: {
-          './Main': './src/PluginMain.vue',
-          './EventListView': './src/views/EventListView.vue',
-          './EventDetailView': './src/views/EventDetailView.vue',
-          './EventCreateView': './src/views/EventCreateView.vue',
+          './Plugin': './src/components/PluginComponent.vue',
         },
         shared: ['vue']
     }),

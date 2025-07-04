@@ -1,98 +1,233 @@
 <template>
   <div
-    class="flex items-center p-4 w-full border-t border-gray-100 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 transition duration-150 ease-in-out cursor-pointer"
+    @click="$emit('click', event)"
+    class="event-list-item"
   >
-    <div class="space-y-1">
-      <div class="w-16 h-16 flex-shrink-0 flex flex-col justify-center items-center border-2 rounded-md mr-4 dark:text-gray-300">
-        <span class="text-2xl font-bold">{{ eventDay }}</span>
-        <span class="text-sm font-medium">{{ eventMonth }}</span>
+    <div class="event-date-box">
+      <div class="date-main">
+        <span class="day">{{ eventDay }}</span>
+        <span class="month">{{ eventMonth }}</span>
       </div>
-      <div class="w-16 flex-shrink-0 flex justify-center border-2 rounded-md">
-        <span class="text-sm font-medium">{{ eventTime }}</span>
+      <div class="time">
+        {{ eventTime }}
       </div>
     </div>
 
-
-    <div class="flex-1">
-      <div class="text-lg font-semibold text-gray-900 dark:text-gray-100">
+    <div class="event-content">
+      <div class="event-title">
         {{ event.title }}
       </div>
-      <div class="text-sm text-gray-600 dark:text-gray-400">
+      <div class="event-description">
         {{ event.description }}
       </div>
-      <div class="mt-4 flex flex-wrap gap-2">
-        <StatusBadge :title="getRecursion(event?.recurring)" />
-        <span v-for="interest in event.interests">
-          <InterestBadge
-            v-if="interest != ''"
-            :key="interest"
-            :title="interest"
-          />
+      
+      <div class="event-meta">
+        <span v-if="event.recurring > 1" class="recurring-badge">
+          {{ getRecurringLabel(event.recurring) }}
         </span>
-        <span v-for="location in event.locations">
-          <LocationBadge
-            v-if="location != ''"
-            :key="location"
-            :title="location"
-          />
+        <span v-if="event.attendeeCount" class="attendee-count">
+          <i class="fas fa-users"></i> {{ event.attendeeCount }}
+          <span v-if="event.limit"> / {{ event.limit }}</span>
+        </span>
+        <span v-if="event.interests.length" class="interests">
+          <i class="fas fa-tags"></i> {{ event.interests.join(', ') }}
         </span>
       </div>
-
-      <span class="mt-2 flex flex-wrap gap-1">
-        <ProfileImage
-          v-for="profile in event.profiles"
-          :src="profile.image"
-          :tooltipText="profile.username"
-          size="small"
-        />
-      </span>
     </div>
 
-    <div class="flex-2">
+    <div class="event-actions">
       <button
-        v-if="!joined"
-        class="p-4 rounded font-semibold transition-colors duration-200 bg-green-500 hover:bg-green-600 text-white"
-        @click="joinEvent"
-      > Join
+        v-if="!isAttending"
+        @click.stop="$emit('join', event)"
+        class="btn-join"
+        :disabled="isFull"
+      >
+        {{ isFull ? 'Full' : 'Join' }}
+      </button>
+      <button
+        v-else
+        @click.stop="$emit('leave', event)"
+        class="btn-leave"
+      >
+        Leave
       </button>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { getRecursion } from '../assets/recursion';
-import { ref, computed } from 'vue';
-import LocationBadge from '@/components/badges/LocationBadge.vue';
-import InterestBadge from '@/components/badges/InterestBadge.vue';
-import StatusBadge from '@/components/badges/StatusBadge.vue';
-import ProfileImage from '@/components/common/ProfileImage.vue';
+import { computed } from 'vue'
+import type { Event, User } from '../types/event'
 
-const props = defineProps({
-  event: {
-    type: Object as () => any,
-    required: true,
-  },
-  profile: {
-    type: Object as () => any,
-    required: true,
-  }
-});
-const eventDate = computed(() => new Date(props.event.date));
-const eventDay = computed(() => eventDate.value?.getDate());
+const props = defineProps<{
+  event: Event
+  currentUser: User
+}>()
+
+const emit = defineEmits<{
+  click: [event: Event]
+  join: [event: Event]
+  leave: [event: Event]
+}>()
+
+const eventDate = computed(() => new Date(props.event.date))
+const eventDay = computed(() => eventDate.value.getDate())
 const eventMonth = computed(() => 
-  eventDate.value?.toLocaleString('default', { month: 'short' })
-);
+  eventDate.value.toLocaleString('default', { month: 'short' })
+)
 const eventTime = computed(() => 
-  eventDate.value?.toLocaleTimeString('default', { hour: '2-digit', minute: '2-digit' })
-);
-const joined = computed(() => 
-  props.event.profiles?.some(x => x.id === props.profile?.id)
-);
+  eventDate.value.toLocaleTimeString('default', { 
+    hour: '2-digit', 
+    minute: '2-digit' 
+  })
+)
 
-const joinEvent = async (e: Event) => {
-  e.preventDefault();
-  e.stopPropagation();
-  // Join functionality will be handled by parent component
-  console.log('Join event:', props.event.id);
+const isAttending = computed(() => 
+  props.event.attendees && 
+  Object.keys(props.event.attendees).includes(props.currentUser.pub)
+)
+
+const isFull = computed(() => 
+  props.event.limit > 0 && 
+  Object.keys(props.event.attendees || {}).length >= props.event.limit
+)
+
+const getRecurringLabel = (recurring: number) => {
+  switch (recurring) {
+    case 2: return 'Weekly'
+    case 3: return 'Bi-weekly'
+    case 4: return 'Monthly'
+    default: return ''
+  }
 }
 </script>
+
+<style scoped>
+.event-list-item {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  background: var(--color-background-soft);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.event-list-item:hover {
+  background: var(--color-background-mute);
+  transform: translateY(-1px);
+}
+
+.event-date-box {
+  flex-shrink: 0;
+  text-align: center;
+  border: 2px solid var(--color-border);
+  border-radius: 8px;
+  padding: 0.5rem;
+  width: 80px;
+}
+
+.date-main {
+  display: flex;
+  flex-direction: column;
+}
+
+.day {
+  font-size: 1.5rem;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.month {
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  opacity: 0.8;
+}
+
+.time {
+  margin-top: 0.25rem;
+  padding-top: 0.25rem;
+  border-top: 1px solid var(--color-border);
+  font-size: 0.75rem;
+}
+
+.event-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.event-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.event-description {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  margin-bottom: 0.5rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.event-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+}
+
+.event-meta i {
+  margin-right: 0.25rem;
+  font-size: 0.75rem;
+}
+
+.recurring-badge {
+  background: var(--color-background-mute);
+  padding: 0.125rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+}
+
+.event-actions {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+
+.btn-join, .btn-leave {
+  padding: 0.5rem 1.5rem;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+}
+
+.btn-join {
+  background: var(--color-success);
+  color: white;
+}
+
+.btn-join:hover:not(:disabled) {
+  background: var(--color-success-hover);
+}
+
+.btn-join:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-leave {
+  background: var(--color-background-mute);
+  color: var(--color-text);
+}
+
+.btn-leave:hover {
+  background: var(--color-danger);
+  color: white;
+}
+</style>
