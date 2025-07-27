@@ -4,22 +4,22 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "VITE_DEV=true vite",
-    "build": "run-p type-check \"build-only {@}\" --",
-    "preview": "vite preview",
-    "test:unit": "vitest",
-    "build-only": "vite build",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "pnpm build && run-p preview:plugin dev",
+    "preview:plugin": "vite preview --port 3007",
+    "test": "vitest",
     "type-check": "vue-tsc --build --force",
-    "lint": "eslint . --fix",
-    "format": "prettier --write src/"
+    "lint": "eslint . --fix"
   },
   "dependencies": {
+    "@heroicons/vue": "^2.2.0",
     "gun": "^0.2020.1240",
-    "vite-plugin-top-level-await": "^1.4.4",
-    "vue": "^3.5.12"
+    "vue": "^3.5.12",
+    "vue-router": "^4.4.5"
   },
   "devDependencies": {
-    "@originjs/vite-plugin-federation": "^1.3.6",
+    "@originjs/vite-plugin-federation": "^1.4.0",
     "@tsconfig/node20": "^20.1.4",
     "@types/jsdom": "^21.1.7",
     "@types/node": "^20.16.11",
@@ -40,6 +40,7 @@
     "typescript": "~5.5.4",
     "vite": "^5.4.8",
     "vitest": "^2.1.2",
-    "vue-tsc": "^2.1.6"
+    "vue-tsc": "^2.1.6",
+    "vite-plugin-top-level-await": "^1.4.4"
   }
 }
