@@ -1,4 +1,4 @@
-import { createPluginDevelopmentEnvironment, type PluginDevConfig } from '@toplocs/plugin-dev-sdk';
+import { createPluginDevelopmentEnvironment, type PluginDevConfig } from '@toplocs/plugin-sdk';
 import pluginConfig from './src/index';
 import SidebarComponent from './src/views/info/Sidebar.vue';
 import ContentComponent from './src/views/settings/Content.vue';
