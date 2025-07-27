@@ -26,12 +26,12 @@ const pluginConfig: BasePluginConfig = {
   description: 'Create and manage events within TopLocs communities',
   author: 'TopLocs Team',
   slots: [
-    { entity: 'Topic', page: 'Info', slot: 'Sidebar', component: 'SidebarView' },
-    { entity: 'Topic', page: 'Settings', slot: 'Content', component: 'SettingsView' },
-    { entity: 'Topic', page: 'Info', slot: 'Content', component: 'MainView' },
-    { entity: 'Location', page: 'Info', slot: 'Sidebar', component: 'SidebarView' },
-    { entity: 'Location', page: 'Settings', slot: 'Content', component: 'SettingsView' },
-    { entity: 'Location', page: 'Info', slot: 'Content', component: 'MainView' },
+    { entity: 'Topic', page: 'Info', slot: 'Sidebar', component: 'Sidebar' },
+    { entity: 'Topic', page: 'Settings', slot: 'Content', component: 'Content' },
+    { entity: 'Topic', page: 'Info', slot: 'Content', component: 'Main' },
+    { entity: 'Location', page: 'Info', slot: 'Sidebar', component: 'Sidebar' },
+    { entity: 'Location', page: 'Settings', slot: 'Content', component: 'Content' },
+    { entity: 'Location', page: 'Info', slot: 'Content', component: 'Main' },
   ]
 };
 

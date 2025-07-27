@@ -4,6 +4,7 @@ export default {
   content: [
     "./index.html",
     "./src/**/*.{vue,js,ts,jsx,tsx}",
+    "./node_modules/@toplocs/plugin-dev-sdk/dist/**/*.{js,css}",
   ],
   theme: {
     extend: {},
