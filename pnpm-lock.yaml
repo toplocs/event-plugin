@@ -11,9 +11,9 @@ importers:
       '@heroicons/vue':
         specifier: ^2.2.0
         version: 2.2.0(vue@3.5.17(typescript@5.5.4))
-      '@toplocs/plugin-dev-sdk':
-        specifier: file:../plugin-dev-sdk
-        version: '@toplocs/plugin-sdk@file:../plugin-dev-sdk(vue-router@4.5.1(vue@3.5.17(typescript@5.5.4)))(vue@3.5.17(typescript@5.5.4))'
+      '@toplocs/plugin-sdk':
+        specifier: ^1.1.0
+        version: 1.1.0(vue-router@4.5.1(vue@3.5.17(typescript@5.5.4)))(vue@3.5.17(typescript@5.5.4))
       gun:
         specifier: ^0.2020.1240
         version: 0.2020.1241
@@ -592,8 +592,8 @@ packages:
   '@swc/types@0.1.23':
     resolution: {integrity: sha512-u1iIVZV9Q0jxY+yM2vw/hZGDNudsN85bBpTqzAQ9rzkxW9D+e3aEM4Han+ow518gSewkXgjmEK0BD79ZcNVgPw==}
 
-  '@toplocs/plugin-sdk@file:../plugin-dev-sdk':
-    resolution: {directory: ../plugin-dev-sdk, type: directory}
+  '@toplocs/plugin-sdk@1.1.0':
+    resolution: {integrity: sha512-PQgDLopeIxaeMLq1WdoIEUz84HDBZ4UARR9CN3v+KhW+AUEpkfptr+acP8ebX9IXOOc9EDrMZZuQz5Fea2K7Rg==}
     peerDependencies:
       vue: ^3.0.0
       vue-router: ^4.0.0
@@ -2426,7 +2426,7 @@ snapshots:
     dependencies:
       '@swc/counter': 0.1.3
 
-  '@toplocs/plugin-sdk@file:../plugin-dev-sdk(vue-router@4.5.1(vue@3.5.17(typescript@5.5.4)))(vue@3.5.17(typescript@5.5.4))':
+  '@toplocs/plugin-sdk@1.1.0(vue-router@4.5.1(vue@3.5.17(typescript@5.5.4)))(vue@3.5.17(typescript@5.5.4))':
     dependencies:
       '@originjs/vite-plugin-federation': 1.4.1
       vue: 3.5.17(typescript@5.5.4)
