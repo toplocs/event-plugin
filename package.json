@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && mv dist/landing.html dist/index.html",
+    "build": "vite build && mv dist/landing.html dist/index.html && touch dist/.nojekyll",
     "preview": "pnpm build && run-p preview:plugin dev",
     "preview:plugin": "vite preview --port 3007",
     "test": "vitest",
