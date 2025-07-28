@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && cp public/plugin-info.html dist/index.html",
     "preview": "pnpm build && run-p preview:plugin dev",
     "preview:plugin": "vite preview --port 3007",
     "test": "vitest",
