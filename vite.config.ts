@@ -8,6 +8,7 @@ import autoprefixer from 'autoprefixer';
 
 // Plugin configuration - supports both dev and preview modes
 export default defineConfig({
+  base: './',
   plugins: [
     vue(),
     federation({
