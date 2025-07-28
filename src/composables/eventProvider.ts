@@ -154,3 +154,6 @@ export function useEventProvider(gun: any, space: string) {
     cleanup
   }
 }
+
+// Export alias for backward compatibility
+export const eventProvider = useEventProvider

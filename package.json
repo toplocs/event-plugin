@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "@heroicons/vue": "^2.2.0",
+    "@toplocs/plugin-sdk": "^1.0.0",
     "gun": "^0.2020.1240",
     "vue": "^3.5.12",
     "vue-router": "^4.4.5"
@@ -39,8 +40,8 @@
     "tailwindcss": "^3.4.14",
     "typescript": "~5.5.4",
     "vite": "^5.4.8",
+    "vite-plugin-top-level-await": "^1.4.4",
     "vitest": "^2.1.2",
-    "vue-tsc": "^2.1.6",
-    "vite-plugin-top-level-await": "^1.4.4"
+    "vue-tsc": "^2.1.6"
   }
 }
