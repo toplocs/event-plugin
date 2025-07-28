@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "@heroicons/vue": "^2.2.0",
+    "@toplocs/plugin-sdk": "^1.0.0",
     "gun": "^0.2020.1240",
     "vue": "^3.5.12",
     "vue-router": "^4.4.5"

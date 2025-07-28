@@ -1,6 +1,12 @@
 import { ref } from 'vue'
 import type { Event, User } from '../types/event'
 
+export function eventProvider(space?: string) {
+  // This is a placeholder for plugin initialization
+  // The actual Gun instance would be provided by the host application
+  console.log('Event provider initialized for space:', space)
+}
+
 export function useEventProvider(gun: any, space: string) {
   const events = ref<Event[]>([])
   const loading = ref(false)
@@ -55,7 +61,7 @@ export function useEventProvider(gun: any, space: string) {
 
   // Create a new event
   const createEvent = async (eventData: Partial<Event>) => {
-    const eventId = Gun.node.Soul.uuid()
+    const eventId = gun._.opt.uuid() // Use gun instance's uuid method
     const event = {
       ...eventData,
       created: Date.now(),
