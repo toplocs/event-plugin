@@ -18,10 +18,12 @@ interface PluginSlot {
   component: string;
 }
 
+const baseUrl = window.location.origin + window.location.pathname.replace(/\/[^/]*$/, '')
+
 const pluginConfig: BasePluginConfig = {
   id: 'event_plugin',
   name: 'Events',
-  url: 'http://localhost:3007/assets/plugin.js',
+  url: `${baseUrl}/plugin.js`,
   version: '1.0.0',
   description: 'Create and manage events within TopLocs communities',
   author: 'TopLocs Team',
