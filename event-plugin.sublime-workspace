@@ -1,0 +1,743 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"con",
+				"console"
+			],
+			[
+				"cons",
+				"console"
+			],
+			[
+				"InterestPlu",
+				"InterestPluginRoutes"
+			],
+			[
+				"INterest",
+				"InterestPluginRoutes"
+			],
+			[
+				"file",
+				"fileURLToPath"
+			],
+			[
+				"re",
+				"retrievedObject"
+			],
+			[
+				"in",
+				"InterestBadge"
+			],
+			[
+				"fetchI",
+				"fetchInterestChildren"
+			],
+			[
+				"wiki",
+				"wikiPage"
+			],
+			[
+				"interes",
+				"interests"
+			],
+			[
+				"remove",
+				"removeInterest"
+			],
+			[
+				"w",
+				"WikiEdit"
+			],
+			[
+				"location",
+				"locationId"
+			],
+			[
+				"loca",
+				"locationId"
+			],
+			[
+				"findInter",
+				"findInterestById"
+			],
+			[
+				"flex",
+				"flex-col"
+			],
+			[
+				"Call",
+				"Callout"
+			],
+			[
+				"Ca",
+				"Callout"
+			],
+			[
+				"selet",
+				"selectedModel"
+			],
+			[
+				"inter",
+				"interestId"
+			],
+			[
+				"fl",
+				"flex-row"
+			],
+			[
+				"L",
+				"LocationBadge"
+			],
+			[
+				"cla",
+				"className"
+			],
+			[
+				"Profile",
+				"ProfileImage"
+			],
+			[
+				"update",
+				"updateUser"
+			],
+			[
+				"too",
+				"Tooltip"
+			],
+			[
+				"pro",
+				"ProfileImage"
+			],
+			[
+				"def",
+				"defaultLocation"
+			],
+			[
+				"ol-",
+				"ol-geolocation"
+			],
+			[
+				"create",
+				"createLocation"
+			],
+			[
+				"selecte",
+				"selectedImage"
+			],
+			[
+				"select",
+				"selectedOption"
+			],
+			[
+				"sele",
+				"selectedOption"
+			],
+			[
+				"pr",
+				"profile"
+			],
+			[
+				"crea",
+				"createProfile"
+			],
+			[
+				"Diamond",
+				"DiamondCard"
+			],
+			[
+				"find",
+				"findUnique"
+			],
+			[
+				"f",
+				"false"
+			],
+			[
+				"pri",
+				"priority"
+			],
+			[
+				"item",
+				"item_ids"
+			],
+			[
+				"Tab",
+				"TableCell"
+			],
+			[
+				"cost",
+				"cost_credits"
+			],
+			[
+				"po",
+				"points_type"
+			],
+			[
+				"ite",
+				"items-center"
+			],
+			[
+				"size",
+				"sizeStyle"
+			],
+			[
+				"convers",
+				"conversationId"
+			],
+			[
+				"user",
+				"userId2"
+			],
+			[
+				"co",
+				"conversationId"
+			],
+			[
+				"conver",
+				"conversationId"
+			],
+			[
+				"Chat",
+				"ChatMessage2"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "server/prisma/schema.prisma",
+			"settings":
+			{
+				"buffer_size": 738,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			},
+			"undo_stack":
+			[
+				[
+					6,
+					1,
+					"paste",
+					null,
+					"AgAAAIwCAAAAAAAAygIAAAAAAAAAAAAAygIAAAAAAADKAgAAAAAAACsAAABsb2NhdGlvbnMgICBTdHJpbmdbXQogIGludGVyZXN0cyAgIFN0cmluZ1td",
+					"CAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAC3AgAAAAAAAIwCAAAAAAAAAAAAAAAA8L8"
+				]
+			]
+		},
+		{
+			"file": ".env",
+			"settings":
+			{
+				"buffer_size": 68,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			},
+			"undo_stack":
+			[
+				[
+					3,
+					1,
+					"paste",
+					null,
+					"AgAAADYAAAAAAAAAQQAAAAAAAAAAAAAAQQAAAAAAAABBAAAAAAAAAA4AAABsb2NhbGhvc3Q6MzAwMA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAA2AAAAAAAAAEQAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					6,
+					2,
+					"left_delete",
+					null,
+					"AgAAABEAAAAAAAAAEQAAAAAAAAAIAAAAb2NhbGhvc3QQAAAAAAAAABAAAAAAAAAAAQAAAGw",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAARAAAAAAAAABkAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					7,
+					1,
+					"paste",
+					null,
+					"AQAAABAAAAAAAAAAGwAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAQAAAAAAAAABAAAAAAAAAAAAAAAAAA8L8"
+				]
+			]
+		},
+		{
+			"file": "server/index.js",
+			"settings":
+			{
+				"buffer_size": 1161,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			},
+			"undo_stack":
+			[
+				[
+					3,
+					1,
+					"insert",
+					{
+						"characters": "\n"
+					},
+					"AQAAALcAAAAAAAAAuAAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAC3AAAAAAAAALcAAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					4,
+					1,
+					"paste",
+					null,
+					"AQAAALgAAAAAAAAA4gAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAC4AAAAAAAAALgAAAAAAAAAAAAAAAAA8L8"
+				]
+			]
+		},
+		{
+			"file": "vite.config.ts",
+			"settings":
+			{
+				"buffer_size": 1363,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			},
+			"undo_stack":
+			[
+				[
+					3,
+					1,
+					"insert",
+					{
+						"characters": "event"
+					},
+					"BgAAAC8BAAAAAAAAMAEAAAAAAAAAAAAAMAEAAAAAAAAwAQAAAAAAAAQAAAB3aWtpMAEAAAAAAAAxAQAAAAAAAAAAAAAxAQAAAAAAADIBAAAAAAAAAAAAADIBAAAAAAAAMwEAAAAAAAAAAAAAMwEAAAAAAAA0AQAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAvAQAAAAAAADMBAAAAAAAAAAAAAAAA8L8"
+				]
+			]
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"rein",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"",
+				"Code Folding: Fold Tag Attributes"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/yannik/js/toplocs/event-plugin",
+		"/Users/yannik/js/toplocs/event-plugin/server",
+		"/Users/yannik/js/toplocs/event-plugin/src",
+		"/Users/yannik/js/toplocs/event-plugin/src/components",
+		"/Users/yannik/js/toplocs/event-plugin/src/views"
+	],
+	"file_history":
+	[
+		"/Users/yannik/js/toplocs/event-plugin/server/.env",
+		"/Users/yannik/js/toplocs/event-plugin/.env",
+		"/Users/yannik/js/toplocs/event-plugin/src/views/EventCreateView.vue",
+		"/Users/yannik/js/toplocs/event-plugin/src/views/EventDetailView.vue",
+		"/Users/yannik/js/toplocs/event-plugin/src/views/EventListView.vue",
+		"/Users/yannik/js/toplocs/event-plugin/server/actions.js",
+		"/Users/yannik/js/toplocs/event-plugin/src/components/EventListItem.vue",
+		"/Users/yannik/js/toplocs/event-plugin/src/App.vue",
+		"/Users/yannik/js/toplocs/event-plugin/src/components/Search.vue",
+		"/Users/yannik/js/toplocs/event-plugin/src/components/AddLocations.vue",
+		"/Users/yannik/js/toplocs/event-plugin/src/components/AddInterests.vue",
+		"/Users/yannik/js/toplocs/event-plugin/server/index.js",
+		"/Users/yannik/js/toplocs/event-plugin/server/.env.default",
+		"/Users/yannik/js/tribelike/src/App.vue",
+		"/Users/yannik/js/tribelike/vite.config.ts",
+		"/Users/yannik/js/tribelike/src/router/index.ts",
+		"/Users/yannik/js/tribelike/server/.env.default",
+		"/Users/yannik/js/tribelike/src/views/ErrorView.vue",
+		"/Users/yannik/js/tribelike/src/router/plugins.ts",
+		"/Users/yannik/js/tribelike/src/components/NavBar.vue",
+		"/Users/yannik/js/tribelike/src/views/ProfileDetailView.vue",
+		"/Users/yannik/js/tribelike/src/components/SubNav.vue",
+		"/Users/yannik/js/tribelike/src/components/plugins/Plugins.vue",
+		"/Users/yannik/js/tribelike/src/components/plugins/MainPlugin.vue",
+		"/Users/yannik/js/tribelike/src/views/plugin/PluginView.vue",
+		"/Users/yannik/js/tribelike/server/prisma/schema.prisma",
+		"/Users/yannik/js/tribelike/src/components/MyProfileComponent.vue",
+		"/Users/yannik/js/tribelike/src/components/ProfileComponent.vue",
+		"/Users/yannik/js/tribelike/src/views/interest/ChatView.vue",
+		"/Users/yannik/js/tribelike/index.html",
+		"/Users/yannik/js/tribelike/src/components/SelectAvatar.vue",
+		"/Users/yannik/.Trash/dialog/AvatarDialog.vue",
+		"/Users/yannik/js/tribelike/src/components/common/Dialog.vue",
+		"/Users/yannik/js/tribelike/src/components/plugins/chat/Index.vue",
+		"/Users/yannik/js/tribelike/src/views/plugin",
+		"/Users/yannik/js/tribelike/src/components/plugins/Chat.vue",
+		"/Users/yannik/js/tribelike/src/views/TestView.vue",
+		"/Users/yannik/js/tribelike/server/src/api/auth.ts",
+		"/Users/yannik/js/tribelike/src/views/SettingsView.vue",
+		"/Users/yannik/js/tribelike/server/src/lib/auth.ts",
+		"/Users/yannik/js/tribelike/src/views/LandingView.vue",
+		"/Users/yannik/js/tribelike/src/utils/external-component.js",
+		"/Users/yannik/js/tribelike/src/main.ts",
+		"/Users/yannik/js/tribelike/dnode/src/app.js",
+		"/Users/yannik/js/tribelike/dnode/package.json",
+		"/Users/yannik/js/tribelike/dnode/src/components/test.vue",
+		"/Users/yannik/js/tribelike/src/assets/base.css",
+		"/Users/yannik/js/tribelike/dnode/src/app_orbit.js",
+		"/Users/yannik/js/tribelike/dnode/schema/profile.json",
+		"/Users/yannik/js/tribelike/dnode/schema/user.json",
+		"/Users/yannik/js/tribelike/js/package.json",
+		"/Users/yannik/js/tribelike/js/src/app.js",
+		"/Users/yannik/js/tribelike/js/src/config/libp2p.js",
+		"/Users/yannik/js/tribelike/decentral/package.json",
+		"/Users/yannik/js/tribelike/new/tsconfig.json",
+		"/Users/yannik/js/tribelike/new/nodemon.json",
+		"/Users/yannik/js/tribelike/new/package.json",
+		"/Users/yannik/js/tribelike/new/src/app.ts",
+		"/Users/yannik/js/tribelike/server/package.json",
+		"/Users/yannik/js/tribelike/.env",
+		"/Users/yannik/js/tribelike/server/tsconfig.json",
+		"/Users/yannik/js/tribelike/server/tsconfig_1.json",
+		"/Users/yannik/js/tribelike/src/views/InterestDetailView.vue",
+		"/Users/yannik/js/tribelike/new/src/config/libp2p.js",
+		"/Users/yannik/js/tribelike/server/src/actions/interest.ts",
+		"/Users/yannik/js/tribelike/server/src/actions/location.ts",
+		"/Users/yannik/js/tribelike/src/views/location/InfoView.vue",
+		"/Users/yannik/js/tribelike/src/views/interest/InfoView.vue",
+		"/Users/yannik/js/tribelike/src/components/list/ActivityListItem.vue",
+		"/Users/yannik/js/tribelike/src/views/ProfileListView.vue",
+		"/Users/yannik/js/tribelike/src/views/ProfileCreateView.vue",
+		"/Users/yannik/js/tribelike/src/components/list/ProfileListItem.vue",
+		"/Users/yannik/js/tribelike/src/components/search/Index.vue",
+		"/Users/yannik/js/tribelike/src/components/search/FindLocation.vue",
+		"/Users/yannik/js/tribelike/src/components/search/FindInterest.vue",
+		"/Users/yannik/js/tribelike/src/views/LocationDetailView.vue",
+		"/Users/yannik/js/tribelike/src/components/plugins/wiki/views/WikiPageView.vue",
+		"/Users/yannik/js/tribelike/src/views/location/WikiView.vue",
+		"/Users/yannik/js/tribelike/server/src/api/plugins/wiki.ts",
+		"/Users/yannik/js/tribelike/server/src/actions/wiki.ts",
+		"/Users/yannik/js/tribelike/src/components/common/IconButton.vue",
+		"/Users/yannik/js/tribelike/src/components/common/Divider.vue",
+		"/Users/yannik/js/tribelike/src/components/search/FindMixed.vue",
+		"/Users/yannik/js/tribelike/src/views/interest/WikiView.vue",
+		"/Users/yannik/js/tribelike/src/components/plugins/wiki/Index.vue",
+		"/Users/yannik/js/tribelike/src/components/plugins/wiki/WikiListItem.vue",
+		"/Users/yannik/js/tribelike/src/components/plugins/wiki/views/WikiCreateView.vue",
+		"/Users/yannik/js/tribelike/src/components/plugins/wiki/WikiEdit.vue",
+		"/Users/yannik/js/tribelike/src/components/plugins/wiki/views/WikiEditView.vue",
+		"/Users/yannik/js/tribelike/src/components/plugins/wiki/WikiCreate.vue",
+		"/Users/yannik/js/tribelike/src/components/dialog/ProfileAddDialog.vue",
+		"/Users/yannik/js/tribelike/src/components/common/Dropdown.vue",
+		"/Users/yannik/js/tribelike/server/src/app.ts",
+		"/Users/yannik/js/tribelike/src/views/InterestCreateView.vue",
+		"/Users/yannik/js/tribelike/src/components/AddInterestButton.vue",
+		"/Users/yannik/js/tribelike/src/views/LocationCreateView.vue",
+		"/Users/yannik/js/tribelike/server/src/actions/activity.ts",
+		"/Users/yannik/js/tribelike/server/src/actions/profile.ts",
+		"/Users/yannik/js/tribelike/server/src/actions/sql/profile.ts",
+		"/Users/yannik/js/tribelike/server/.env",
+		"/Users/yannik/js/tribelike/server/src/api/profile.ts",
+		"/Users/yannik/js/tribelike/server/src/api/interest.ts",
+		"/Users/yannik/js/tribelike/src/components/FindMixed.vue",
+		"/Users/yannik/js/tribelike/src/components/FindInterest.vue",
+		"/Users/yannik/js/tribelike/src/views/location/ActivityView.vue",
+		"/Users/yannik/js/tribelike/server/src/actions/ipfs/profile.ts",
+		"/Users/yannik/js/tribelike/server/storage/profiles/Yannik.json",
+		"/Users/yannik/js/tribelike/server/src/actions/files/profile.ts",
+		"/Users/yannik/js/tribelike/server/src/actions/filestorage/profile.ts",
+		"/Users/yannik/js/tribelike/server/src/actions/user.ts",
+		"/Users/yannik/js/tribelike/server/src/.env.default",
+		"/Users/yannik/js/tribelike/src/components/list/NotificationList.vue",
+		"/Users/yannik/js/tribelike/server/src/api/location.ts",
+		"/Users/yannik/js/tribelike/src/components/NotificationList.vue",
+		"/Users/yannik/js/tribelike/src/components/FindLocation.vue",
+		"/Users/yannik/js/tribelike/src/components/MapComponent.vue",
+		"/Users/yannik/js/tribelike/src/components/badges/LocationBadge.vue",
+		"/Users/yannik/js/tribelike/src/components/badges/InterestBadge.vue",
+		"/Users/yannik/js/tribelike/src/components/list/PluginListItem.vue",
+		"/Users/yannik/js/tribelike/src/components/common/BackButton.vue",
+		"/Users/yannik/js/tribelike/src/components/common/SelectInput.vue",
+		"/Users/yannik/js/tribelike/src/views/interest/ActivityView.vue",
+		"/Users/yannik/js/tribelike/server/src/api/activity.ts",
+		"/Users/yannik/js/tribelike/src/views/location/DiscussionView.vue",
+		"/Users/yannik/js/tribelike/src/views/interest/DiscussionView.vue",
+		"/Users/yannik/js/tribelike/src/views/location/ChatView.vue",
+		"/Users/yannik/js/tribelike/src/views/LoginView.vue",
+		"/Users/yannik/js/tribelike/src/views/profile/SettingsView.vue"
+	],
+	"find":
+	{
+		"height": 27.0
+	},
+	"find_in_files":
+	{
+		"height": 101.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"wiki"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"event"
+		],
+		"reverse": false,
+		"scrollbar_highlights": true,
+		"show_context": true,
+		"use_buffer2": true,
+		"use_gitignore": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "server/prisma/schema.prisma",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 738,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								714,
+								714
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"stack_multiselect": false,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": ".env",
+					"selected": true,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 68,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								27,
+								27
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"stack_multiselect": false,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "server/index.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1161,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								226,
+								226
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"stack_multiselect": false,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "vite.config.ts",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1363,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								308,
+								308
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/TypeScript.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"stack_multiselect": false,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 27.0
+	},
+	"input":
+	{
+		"height": 39.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "event-plugin.sublime-project",
+	"replace":
+	{
+		"height": 50.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 221.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

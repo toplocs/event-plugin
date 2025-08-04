@@ -1,5 +1,5 @@
 <template>
-  <Settings/>
+  <Settings />
 </template>
 
 <script setup lang="ts">
@@ -11,5 +11,7 @@ const props = defineProps({
 });
 
 console.log("Event Settings instance: ", props.parentId);
+
+// Call eventProvider immediately to set up the provide/inject context
 eventProvider(props.parentId ?? 'test');
 </script>

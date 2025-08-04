@@ -46,13 +46,12 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted } from 'vue'
+import { computed } from 'vue'
+import { useEvent } from '../composables/eventProvider'
 import type { Event } from '../types/event'
 
 const props = defineProps<{
-  gun: any
-  user: any
-  space: string
+  user?: any
 }>()
 
 const emit = defineEmits<{
@@ -61,8 +60,7 @@ const emit = defineEmits<{
   viewAll: []
 }>()
 
-const events = ref<Event[]>([])
-const loading = ref(true)
+const { events, loading } = useEvent()
 
 const upcomingEvents = computed(() => {
   const now = Date.now()
@@ -88,46 +86,6 @@ const isAttending = (event: Event) => {
   return event.attendees && props.user?.is?.pub && 
     Object.keys(event.attendees).includes(props.user.is.pub)
 }
-
-const loadEvents = () => {
-  const eventsRef = props.gun.get('events').get(props.space)
-  
-  eventsRef.map().on((event: any, id: string) => {
-    if (!event || event === null) return
-    
-    const existingIndex = events.value.findIndex(e => e.id === id)
-    const eventData: Event = {
-      id,
-      title: event.title,
-      description: event.description,
-      date: event.date,
-      time: event.time,
-      recurring: event.recurring || 1,
-      limit: event.limit || 0,
-      interests: event.interests || [],
-      locations: event.locations || [],
-      creator: event.creator,
-      created: event.created || Date.now(),
-      attendees: event.attendees || {},
-      attendeeCount: event.attendeeCount || Object.keys(event.attendees || {}).length,
-      space: event.space || props.space
-    }
-    
-    if (existingIndex >= 0) {
-      events.value[existingIndex] = eventData
-    } else {
-      events.value.push(eventData)
-    }
-  })
-  
-  setTimeout(() => {
-    loading.value = false
-  }, 1000)
-}
-
-onMounted(() => {
-  loadEvents()
-})
 </script>
 
 <style scoped>

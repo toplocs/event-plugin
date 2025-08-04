@@ -123,12 +123,10 @@
 
 <script setup lang="ts">
 import { ref, computed } from 'vue'
-import { useEventProvider } from '../composables/eventProvider'
+import { useEvent } from '../composables/eventProvider'
 import type { User } from '../types/event'
 
 const props = defineProps<{
-  gun: any
-  space: string
   currentUser: User
 }>()
 
@@ -137,7 +135,7 @@ const emit = defineEmits<{
   created: [eventId: string]
 }>()
 
-const { createEvent } = useEventProvider(props.gun, props.space)
+const { createEvent } = useEvent()
 
 const creating = ref(false)
 

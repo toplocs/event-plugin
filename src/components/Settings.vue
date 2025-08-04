@@ -66,9 +66,7 @@
 import { ref, onMounted } from 'vue'
 
 const props = defineProps<{
-  gun: any
-  user: any
-  space: string
+  user?: any
 }>()
 
 interface EventSettings {
@@ -93,18 +91,19 @@ const settings = ref<EventSettings>({
   shareLocation: true
 })
 
-const userSettingsRef = props.gun.user().get('event-settings')
-
 const loadSettings = () => {
-  userSettingsRef.once((data: any) => {
-    if (data) {
-      settings.value = { ...settings.value, ...data }
+  const saved = localStorage.getItem('event-plugin-settings')
+  if (saved) {
+    try {
+      settings.value = { ...settings.value, ...JSON.parse(saved) }
+    } catch (e) {
+      console.warn('Failed to load settings:', e)
     }
-  })
+  }
 }
 
 const saveSettings = () => {
-  userSettingsRef.put(settings.value)
+  localStorage.setItem('event-plugin-settings', JSON.stringify(settings.value))
 }
 
 onMounted(() => {

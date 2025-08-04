@@ -8,7 +8,7 @@
     </div>
 
     <div class="event-filters">
-      <select v-model="filter" @change="loadEvents" class="filter-select">
+      <select v-model="filter" class="filter-select">
         <option value="upcoming">Upcoming Events</option>
         <option value="past">Past Events</option>
         <option value="my-events">My Events</option>
@@ -46,8 +46,8 @@
       :event="selectedEvent"
       :currentUser="currentUser"
       @close="selectedEvent = null"
-      @update="updateEvent"
-      @delete="deleteEvent"
+      @update="handleUpdateEvent"
+      @delete="handleDeleteEvent"
       @join="joinEvent"
       @leave="leaveEvent"
     />
@@ -55,8 +55,6 @@
     <!-- Create Event Modal -->
     <EventCreateModal
       v-if="showCreateModal"
-      :gun="gun"
-      :space="space"
       :currentUser="currentUser"
       @close="showCreateModal = false"
       @created="onEventCreated"
@@ -65,31 +63,27 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted, onUnmounted } from 'vue'
-import { useEventProvider } from '../composables/eventProvider'
+import { ref, computed } from 'vue'
+import { useEvent } from '../composables/eventProvider'
 import EventListItem from './EventListItem.vue'
 import EventDetailModal from './EventDetailModal.vue'
 import EventCreateModal from './EventCreateModal.vue'
 import type { Event, User } from '../types/event'
 
 const props = defineProps<{
-  gun: any
-  user: any
-  space: string
+  user?: any
   sphere?: any
 }>()
 
 const {
   events,
   loading,
-  loadEvents,
   createEvent,
   updateEvent,
   deleteEvent,
   joinEvent: joinEventFn,
-  leaveEvent: leaveEventFn,
-  cleanup
-} = useEventProvider(props.gun, props.space)
+  leaveEvent: leaveEventFn
+} = useEvent()
 
 const showCreateModal = ref(false)
 const selectedEvent = ref<Event | null>(null)
@@ -141,18 +135,20 @@ const leaveEvent = async (event: Event) => {
   await leaveEventFn(event.id, currentUser.value.pub)
 }
 
+const handleUpdateEvent = (event: Event) => {
+  // For now, just close the modal since we don't have an update implementation
+  selectedEvent.value = null
+}
+
+const handleDeleteEvent = async (event: Event) => {
+  await deleteEvent(event.id)
+  selectedEvent.value = null
+}
+
 const onEventCreated = (eventId: string) => {
   showCreateModal.value = false
   // Event will appear automatically via Gun subscription
 }
-
-onMounted(() => {
-  loadEvents()
-})
-
-onUnmounted(() => {
-  cleanup()
-})
 </script>
 
 <style scoped>
