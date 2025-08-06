@@ -3,6 +3,9 @@ import { createApp } from 'vue';
 import App from './App.vue';
 import gun from './gun';
 
-const app = createApp(App);
-
-app.mount('#event-plugin');
+try {
+  const app = createApp(App);
+  app.mount('#event-plugin');
+} catch (error) {
+  console.error('Failed to mount event plugin app:', error);
+}

@@ -63,11 +63,26 @@ const emit = defineEmits<{
 const { events, loading } = useEvent()
 
 const upcomingEvents = computed(() => {
+  console.log('🔍 Sidebar.vue upcomingEvents computed:', {
+    totalEvents: events.value.length,
+    events: events.value.map(e => ({ id: e.id, title: e.title, date: e.date, deleted: e.deleted }))
+  })
+
   const now = Date.now()
-  return events.value
-    .filter(e => new Date(e.date).getTime() > now && !e.deleted)
+  console.log('🔍 Sidebar current time:', new Date(now).toISOString());
+  
+  const filtered = events.value
+    .filter(e => {
+      const eventTime = new Date(e.date).getTime()
+      const isUpcoming = eventTime > now && !e.deleted
+      console.log(`🔍 Sidebar event "${e.title}" (${e.date}) is upcoming:`, isUpcoming, 'deleted:', e.deleted)
+      return isUpcoming
+    })
     .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
     .slice(0, 5) // Show only next 5 events
+
+  console.log('🔍 Sidebar filtered upcoming events:', filtered.length)
+  return filtered
 })
 
 const formatDate = (dateStr: string) => {

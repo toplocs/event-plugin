@@ -11,5 +11,6 @@ const props = defineProps({
 });
 
 console.log("Event Main instance: ", props.parentId);
+// Re-enable provider
 eventProvider(props.parentId ?? 'test');
 </script>

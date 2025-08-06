@@ -21,11 +21,11 @@
     </div>
 
     <div v-else-if="events.length === 0" class="no-events">
-      <i class="fas fa-calendar-xmark fa-3x"></i>
-      <p>No events found</p>
-      <button @click="showCreateModal = true" class="btn-secondary">
-        Create the first event
-      </button>
+      <EventCreateInline 
+        :currentUser="currentUser"
+        @created="onEventCreated"
+        @cancelled="onEventCancelled"
+      />
     </div>
 
     <div v-else class="event-list">
@@ -68,6 +68,7 @@ import { useEvent } from '../composables/eventProvider'
 import EventListItem from './EventListItem.vue'
 import EventDetailModal from './EventDetailModal.vue'
 import EventCreateModal from './EventCreateModal.vue'
+import EventCreateInline from './EventCreateInline.vue'
 import type { Event, User } from '../types/event'
 
 const props = defineProps<{
@@ -96,12 +97,25 @@ const currentUser = computed<User>(() => ({
 }))
 
 const sortedEvents = computed(() => {
+  console.log('🔍 Main.vue sortedEvents computed:', {
+    totalEvents: events.value.length,
+    events: events.value.map(e => ({ id: e.id, title: e.title, date: e.date, dateObj: new Date(e.date) })),
+    filter: filter.value
+  })
+
   const now = Date.now()
   let filtered = events.value
+  
+  console.log('🔍 Current time:', new Date(now).toISOString());
 
   switch (filter.value) {
     case 'upcoming':
-      filtered = events.value.filter(e => new Date(e.date).getTime() > now)
+      filtered = events.value.filter(e => {
+        const eventTime = new Date(e.date).getTime()
+        const isUpcoming = eventTime > now
+        console.log(`🔍 Event "${e.title}" (${e.date}) is upcoming:`, isUpcoming, 'Event time:', eventTime, 'Now:', now)
+        return isUpcoming
+      })
       break
     case 'past':
       filtered = events.value.filter(e => new Date(e.date).getTime() <= now)
@@ -115,6 +129,8 @@ const sortedEvents = computed(() => {
       )
       break
   }
+  
+  console.log('🔍 After filtering:', filtered.length, 'events remain')
 
   return filtered.sort((a, b) => {
     const dateA = new Date(a.date).getTime()
@@ -148,6 +164,10 @@ const handleDeleteEvent = async (event: Event) => {
 const onEventCreated = (eventId: string) => {
   showCreateModal.value = false
   // Event will appear automatically via Gun subscription
+}
+
+const onEventCancelled = () => {
+  console.log('Event creation cancelled')
 }
 </script>
 
@@ -212,18 +232,7 @@ const onEventCreated = (eventId: string) => {
 }
 
 .no-events {
-  text-align: center;
-  padding: 3rem;
-  color: var(--color-text-secondary);
-}
-
-.no-events i {
-  margin-bottom: 1rem;
-  opacity: 0.5;
-}
-
-.no-events p {
-  margin: 1rem 0;
+  padding: 2rem;
 }
 
 .event-list {

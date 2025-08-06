@@ -2,13 +2,17 @@ import Gun from 'gun' // You can also use 'gun' here
 import 'gun/sea' // Optional: for user authentication
 import 'gun/lib/unset'; //optional
 
-// Use Gun.js peers from environment or default to common peers
-const peers = import.meta.env.VITE_GUN_PEERS?.split(',') || [
-  'https://gun-manhattan.herokuapp.com/gun',
-  'https://relay.peers.community/gun',
-  'https://gun-sjc.herokuapp.com/gun'
-];
-const gun = Gun(peers) as any;
+// Use Gun.js peers from environment or default to local storage only for development
+const peers = import.meta.env.VITE_GUN_PEERS?.split(',') || [];
+
+// For development, use local storage only to avoid connection issues
+const gun = Gun({
+  peers: peers.length > 0 ? peers : undefined, // Only use peers if specified
+  localStorage: true, // Always use localStorage for persistence
+  radisk: true, // Use radisk for better performance
+}) as any;
+
+console.log('Gun.js initialized with peers:', peers.length > 0 ? peers : 'local only');
 
 gun.clear = function() {
 	// Clear localStorage
