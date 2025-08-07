@@ -46,13 +46,12 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted } from 'vue'
+import { computed } from 'vue'
+import { useEvent } from '../composables/eventProvider'
 import type { Event } from '../types/event'
 
 const props = defineProps<{
-  gun: any
-  user: any
-  space: string
+  user?: any
 }>()
 
 const emit = defineEmits<{
@@ -61,15 +60,29 @@ const emit = defineEmits<{
   viewAll: []
 }>()
 
-const events = ref<Event[]>([])
-const loading = ref(true)
+const { events, loading } = useEvent()
 
 const upcomingEvents = computed(() => {
+  console.log('🔍 Sidebar.vue upcomingEvents computed:', {
+    totalEvents: events.value.length,
+    events: events.value.map(e => ({ id: e.id, title: e.title, date: e.date, deleted: e.deleted }))
+  })
+
   const now = Date.now()
-  return events.value
-    .filter(e => new Date(e.date).getTime() > now && !e.deleted)
+  console.log('🔍 Sidebar current time:', new Date(now).toISOString());
+  
+  const filtered = events.value
+    .filter(e => {
+      const eventTime = new Date(e.date).getTime()
+      const isUpcoming = eventTime > now && !e.deleted
+      console.log(`🔍 Sidebar event "${e.title}" (${e.date}) is upcoming:`, isUpcoming, 'deleted:', e.deleted)
+      return isUpcoming
+    })
     .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
     .slice(0, 5) // Show only next 5 events
+
+  console.log('🔍 Sidebar filtered upcoming events:', filtered.length)
+  return filtered
 })
 
 const formatDate = (dateStr: string) => {
@@ -88,46 +101,6 @@ const isAttending = (event: Event) => {
   return event.attendees && props.user?.is?.pub && 
     Object.keys(event.attendees).includes(props.user.is.pub)
 }
-
-const loadEvents = () => {
-  const eventsRef = props.gun.get('events').get(props.space)
-  
-  eventsRef.map().on((event: any, id: string) => {
-    if (!event || event === null) return
-    
-    const existingIndex = events.value.findIndex(e => e.id === id)
-    const eventData: Event = {
-      id,
-      title: event.title,
-      description: event.description,
-      date: event.date,
-      time: event.time,
-      recurring: event.recurring || 1,
-      limit: event.limit || 0,
-      interests: event.interests || [],
-      locations: event.locations || [],
-      creator: event.creator,
-      created: event.created || Date.now(),
-      attendees: event.attendees || {},
-      attendeeCount: event.attendeeCount || Object.keys(event.attendees || {}).length,
-      space: event.space || props.space
-    }
-    
-    if (existingIndex >= 0) {
-      events.value[existingIndex] = eventData
-    } else {
-      events.value.push(eventData)
-    }
-  })
-  
-  setTimeout(() => {
-    loading.value = false
-  }, 1000)
-}
-
-onMounted(() => {
-  loadEvents()
-})
 </script>
 
 <style scoped>

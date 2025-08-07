@@ -22,6 +22,25 @@
         </div>
 
         <div class="form-group">
+          <label for="group">Group (optional)</label>
+          <select
+            id="group"
+            v-model="formData.groupId"
+            class="form-input"
+          >
+            <option value="">No group - standalone event</option>
+            <option v-for="group in availableGroups" :key="group.id" :value="group.id">
+              {{ getCategoryIcon(group.category) }} {{ group.name }}
+            </option>
+          </select>
+          <div v-if="!availableGroups.length" class="text-sm text-gray-500 mt-1">
+            <button @click="navigateToGroups" type="button" class="text-blue-500 hover:text-blue-600 underline bg-none border-none cursor-pointer">
+              Create a group first
+            </button> to organize events under it
+          </div>
+        </div>
+
+        <div class="form-group">
           <label for="description">Description</label>
           <textarea
             id="description"
@@ -123,12 +142,12 @@
 
 <script setup lang="ts">
 import { ref, computed } from 'vue'
-import { useEventProvider } from '../composables/eventProvider'
+import { useEvent } from '../composables/eventProvider'
+import { useGroup } from '../composables/groupProvider'
+import { router } from '../composables/useRouter'
 import type { User } from '../types/event'
 
 const props = defineProps<{
-  gun: any
-  space: string
   currentUser: User
 }>()
 
@@ -137,7 +156,8 @@ const emit = defineEmits<{
   created: [eventId: string]
 }>()
 
-const { createEvent } = useEventProvider(props.gun, props.space)
+const { createEvent } = useEvent()
+const { groups, categories } = useGroup()
 
 const creating = ref(false)
 
@@ -149,8 +169,27 @@ const formData = ref({
   recurring: 1,
   limit: 0,
   interests: '',
-  locations: ''
+  locations: '',
+  groupId: ''
 })
+
+// Only show groups where the user is a member or organizer
+const availableGroups = computed(() => {
+  return groups.value.filter(group => 
+    group.organizer === props.currentUser.pub || 
+    group.members.includes(props.currentUser.pub)
+  )
+})
+
+const getCategoryIcon = (categoryId: string) => {
+  const category = categories.value.find(c => c.id === categoryId)
+  return category?.icon || '👥'
+}
+
+const navigateToGroups = () => {
+  emit('close')
+  router.navigate('/groups')
+}
 
 // Set minimum date to today
 const minDate = computed(() => {
@@ -161,11 +200,13 @@ const minDate = computed(() => {
 const handleCreateEvent = async () => {
   if (creating.value) return
   
+  console.log('🎯 Creating event with form data:', formData.value)
   creating.value = true
   
   try {
     // Combine date and time
     const eventDate = new Date(`${formData.value.date}T${formData.value.time}`)
+    console.log('📅 Event date:', eventDate)
     
     // Parse comma-separated values
     const interests = formData.value.interests
@@ -178,7 +219,7 @@ const handleCreateEvent = async () => {
       .map(l => l.trim())
       .filter(l => l.length > 0)
     
-    const eventId = await createEvent({
+    const eventData = {
       title: formData.value.title,
       description: formData.value.description,
       date: eventDate.toISOString(),
@@ -187,12 +228,18 @@ const handleCreateEvent = async () => {
       limit: formData.value.limit,
       interests,
       locations,
-      creator: props.currentUser.pub
-    })
+      creator: props.currentUser.pub,
+      groupId: formData.value.groupId || undefined
+    }
+    
+    console.log('🚀 Calling createEvent with:', eventData)
+    const eventId = await createEvent(eventData)
+    console.log('✅ Event created successfully:', eventId)
     
     emit('created', eventId)
   } catch (error) {
-    console.error('Failed to create event:', error)
+    console.error('❌ Failed to create event:', error)
+    alert('Failed to create event: ' + error.message)
   } finally {
     creating.value = false
   }

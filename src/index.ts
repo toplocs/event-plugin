@@ -3,36 +3,33 @@
  * This file defines the plugin configuration and exports it for use in TopLocs
  */
 
-interface BasePluginConfig {
-  id: string;
-  name: string;
-  url: string;
-  version?: string;
-  description?: string;
-  author?: string;
-  slots: Array<PluginSlot>;
-}
+import type { BasePluginConfig } from '@toplocs/plugin-sdk'
 
-interface PluginSlot {
-  slot: string;
-  component: string;
-}
+const baseUrl = typeof window !== 'undefined' 
+  ? window.location.origin + window.location.pathname.replace(/\/[^/]*$/, '')
+  : ''
 
 const pluginConfig: BasePluginConfig = {
   id: 'event_plugin',
   name: 'Events',
-  url: 'http://localhost:3007/assets/plugin.js',
+  url: `${baseUrl}/plugin.js`,
   version: '1.0.0',
   description: 'Create and manage events within TopLocs communities',
   author: 'TopLocs Team',
   slots: [
-    { entity: 'Topic', page: 'Info', slot: 'Sidebar', component: 'Sidebar' },
-    { entity: 'Topic', page: 'Settings', slot: 'Content', component: 'Content' },
-    { entity: 'Topic', page: 'Info', slot: 'Content', component: 'Main' },
-    { entity: 'Location', page: 'Info', slot: 'Sidebar', component: 'Sidebar' },
-    { entity: 'Location', page: 'Settings', slot: 'Content', component: 'Content' },
-    { entity: 'Location', page: 'Info', slot: 'Content', component: 'Main' },
+    { entity: 'Topic', page: 'Info', slot: 'Sidebar', component: 'InfoSidebar' },
+    { entity: 'Topic', page: 'Settings', slot: 'Content', component: 'SettingsContent' },
+    { entity: 'Topic', page: 'Info', slot: 'Content', component: 'InfoContent' },
+    { entity: 'Location', page: 'Info', slot: 'Sidebar', component: 'InfoSidebar' },
+    { entity: 'Location', page: 'Settings', slot: 'Content', component: 'SettingsContent' },
+    { entity: 'Location', page: 'Info', slot: 'Content', component: 'InfoContent' },
   ]
 };
+
+// Export router SDK for testing
+export { routerSDK, RouterTestUtils } from './sdk/routerSDK';
+
+// Export router composable
+export { router } from './composables/useRouter';
 
 export default pluginConfig;
