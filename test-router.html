@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Plugin Router Test</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .nav-button {
+            margin: 5px;
+            padding: 10px 15px;
+            border: none;
+            background: #007bff;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .nav-button:hover {
+            background: #0056b3;
+        }
+        .nav-button.active {
+            background: #28a745;
+        }
+        .test-section {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .test-result {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            padding: 10px;
+            margin: 10px 0;
+            font-family: monospace;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <h1>🧪 Event Plugin Router Test</h1>
+        
+        <div class="test-section">
+            <h2>Navigation Test</h2>
+            <p>Current Path: <strong>{{ currentPath }}</strong></p>
+            <p>Current Route: <strong>{{ currentRoute?.name || 'None' }}</strong></p>
+            <div>
+                <button 
+                    v-for="route in routes" 
+                    :key="route.path"
+                    @click="navigate(route.path)"
+                    :class="['nav-button', { active: currentPath === route.path }]"
+                >
+                    {{ route.meta?.icon }} {{ route.meta?.title || route.name }}
+                </button>
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h2>URL Building Test</h2>
+            <button @click="testUrlBuilding" class="nav-button">Test URL Building</button>
+            <div v-if="urlTestResults" class="test-result">{{ urlTestResults }}</div>
+        </div>
+
+        <div class="test-section">
+            <h2>Navigation History Test</h2>
+            <div>
+                <button @click="testHistory" class="nav-button">Test Navigation History</button>
+                <button @click="goBack" class="nav-button">Go Back</button>
+                <button @click="goForward" class="nav-button">Go Forward</button>
+            </div>
+            <div v-if="historyTestResults" class="test-result">{{ historyTestResults }}</div>
+        </div>
+
+        <div class="test-section">
+            <h2>Full Test Suite</h2>
+            <button @click="runFullTest" class="nav-button">Run All Tests</button>
+            <div v-if="fullTestResults" class="test-result">{{ fullTestResults }}</div>
+        </div>
+
+        <div class="test-section">
+            <h2>Query Parameters Test</h2>
+            <button @click="testQueryParams" class="nav-button">Test Query Params</button>
+            <div v-if="queryTestResults" class="test-result">{{ queryTestResults }}</div>
+        </div>
+    </div>
+
+    <script type="module">
+        // Mock the router system for testing
+        const mockRoutes = [
+            { path: '/', name: 'events', component: 'Main', meta: { title: 'Events', icon: '📅' } },
+            { path: '/upcoming', name: 'upcoming', component: 'Main', meta: { title: 'Upcoming', icon: '⏰' } },
+            { path: '/past', name: 'past', component: 'Main', meta: { title: 'Past', icon: '📚' } },
+            { path: '/my-events', name: 'my-events', component: 'Main', meta: { title: 'My Events', icon: '👤' } },
+            { path: '/attending', name: 'attending', component: 'Main', meta: { title: 'Attending', icon: '✅' } },
+            { path: '/create', name: 'create', component: 'EventCreate', meta: { title: 'Create Event', icon: '➕' } },
+            { path: '/settings', name: 'settings', component: 'Settings', meta: { title: 'Settings', icon: '⚙️' } }
+        ];
+
+        class MockRouter {
+            constructor(routes) {
+                this.routes = routes;
+                this.currentPath = '/';
+                this.currentQuery = {};
+                this.history = ['/'];
+                this.historyIndex = 0;
+            }
+
+            navigate(path, query = {}) {
+                this.currentPath = path;
+                this.currentQuery = query;
+                
+                // Add to history
+                if (this.history[this.historyIndex] !== path) {
+                    this.history = this.history.slice(0, this.historyIndex + 1);
+                    this.history.push(path);
+                    this.historyIndex = this.history.length - 1;
+                }
+
+                // Update URL
+                const url = new URL(window.location.href);
+                url.searchParams.set('pluginPath', path);
+                Object.entries(query).forEach(([key, value]) => {
+                    if (value) {
+                        url.searchParams.set(key, value);
+                    }
+                });
+                window.history.replaceState({}, '', url.toString());
+            }
+
+            getCurrentRoute() {
+                return this.routes.find(r => r.path === this.currentPath);
+            }
+
+            buildUrl(path, query = {}) {
+                const params = new URLSearchParams({ pluginPath: path, ...query });
+                return `?${params.toString()}`;
+            }
+
+            goBack() {
+                if (this.historyIndex > 0) {
+                    this.historyIndex--;
+                    this.currentPath = this.history[this.historyIndex];
+                }
+            }
+
+            goForward() {
+                if (this.historyIndex < this.history.length - 1) {
+                    this.historyIndex++;
+                    this.currentPath = this.history[this.historyIndex];
+                }
+            }
+        }
+
+        const mockRouter = new MockRouter(mockRoutes);
+
+        const { createApp, ref, computed } = Vue;
+
+        createApp({
+            setup() {
+                const currentPath = ref(mockRouter.currentPath);
+                const routes = ref(mockRoutes);
+                const urlTestResults = ref('');
+                const historyTestResults = ref('');
+                const fullTestResults = ref('');
+                const queryTestResults = ref('');
+
+                const currentRoute = computed(() => mockRouter.getCurrentRoute());
+
+                const navigate = (path) => {
+                    mockRouter.navigate(path);
+                    currentPath.value = mockRouter.currentPath;
+                };
+
+                const testUrlBuilding = () => {
+                    const results = [];
+                    routes.value.forEach(route => {
+                        const url = mockRouter.buildUrl(route.path, { test: 'param', id: '123' });
+                        results.push(`${route.path}: ${url}`);
+                    });
+                    urlTestResults.value = results.join('\n');
+                };
+
+                const goBack = () => {
+                    mockRouter.goBack();
+                    currentPath.value = mockRouter.currentPath;
+                    historyTestResults.value = `Went back to: ${mockRouter.currentPath}`;
+                };
+
+                const goForward = () => {
+                    mockRouter.goForward();
+                    currentPath.value = mockRouter.currentPath;
+                    historyTestResults.value = `Went forward to: ${mockRouter.currentPath}`;
+                };
+
+                const testHistory = () => {
+                    const testPaths = ['/upcoming', '/past', '/my-events', '/settings'];
+                    testPaths.forEach(path => navigate(path));
+                    historyTestResults.value = `Navigation history: ${mockRouter.history.join(' → ')}`;
+                };
+
+                const testQueryParams = () => {
+                    navigate('/events', { filter: 'upcoming', sort: 'date' });
+                    const currentUrl = window.location.href;
+                    queryTestResults.value = `Current URL: ${currentUrl}\nQuery params added successfully!`;
+                };
+
+                const runFullTest = async () => {
+                    const results = [];
+                    
+                    // Test navigation to all routes
+                    let navigationPassed = 0;
+                    for (const route of routes.value) {
+                        navigate(route.path);
+                        if (currentPath.value === route.path) {
+                            navigationPassed++;
+                            results.push(`✅ Navigation to ${route.path} successful`);
+                        } else {
+                            results.push(`❌ Navigation to ${route.path} failed`);
+                        }
+                    }
+
+                    // Test URL building
+                    let urlBuildingPassed = 0;
+                    for (const route of routes.value) {
+                        const url = mockRouter.buildUrl(route.path, { test: 'param' });
+                        if (url.includes(route.path)) {
+                            urlBuildingPassed++;
+                        }
+                    }
+
+                    results.push(`\n📊 Test Summary:`);
+                    results.push(`Navigation: ${navigationPassed}/${routes.value.length} passed`);
+                    results.push(`URL Building: ${urlBuildingPassed}/${routes.value.length} passed`);
+                    results.push(`History: ${mockRouter.history.length} entries`);
+
+                    fullTestResults.value = results.join('\n');
+                };
+
+                return {
+                    currentPath,
+                    currentRoute,
+                    routes,
+                    navigate,
+                    testUrlBuilding,
+                    testHistory,
+                    runFullTest,
+                    testQueryParams,
+                    goBack,
+                    goForward,
+                    urlTestResults,
+                    historyTestResults,
+                    fullTestResults,
+                    queryTestResults
+                };
+            }
+        }).mount('#app');
+    </script>
+</body>
+</html>

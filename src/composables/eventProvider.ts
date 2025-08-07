@@ -41,6 +41,7 @@ const saveEventToGun = (event: Event): Promise<void> => {
       // Save basic event data (no arrays)
       const basicEventData = {
         id: event.id,
+        groupId: event.groupId,
         title: event.title,
         description: event.description,
         date: event.date,
@@ -127,6 +128,7 @@ const loadEventsFromGun = (space: string) => {
     // Create event object with basic data
     const event: Event = {
       id: eventId,
+      groupId: eventData.groupId,
       title: eventData.title || '',
       description: eventData.description || '',
       date: eventData.date || '',
@@ -136,6 +138,8 @@ const loadEventsFromGun = (space: string) => {
       creator: eventData.creator || 'anonymous',
       created: eventData.created || Date.now(),
       attendeeCount: eventData.attendeeCount || 0,
+      status: 'published',
+      tags: [],
       space: space,
       deleted: eventData.deleted || false,
       interests: [], // Will be loaded from Gun set
@@ -252,6 +256,7 @@ export function eventProvider(instance: string) {
     // Create the full event object
     const newEvent: Event = {
       id: eventId,
+      groupId: eventData.groupId,
       title: eventData.title || '',
       description: eventData.description || '',
       date: eventData.date || new Date().toISOString(),
@@ -263,7 +268,9 @@ export function eventProvider(instance: string) {
       creator: eventData.creator || 'anonymous',
       created: Date.now(),
       attendees: {},
-      attendeeCount: 0, // Fix: add this field with default value
+      attendeeCount: 0,
+      status: 'published',
+      tags: [],
       space: instance,
       deleted: false
     };
@@ -324,7 +331,7 @@ export function eventProvider(instance: string) {
     console.log('Join event:', eventId, user);
     const event = events.value.find(e => e.id === eventId);
     if (event) {
-      const attendeeData = {
+      const attendeeData: Attendee = {
         pub: user.pub,
         alias: user.alias,
         avatar: user.avatar,

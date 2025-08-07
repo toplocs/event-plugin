@@ -37,6 +37,7 @@
         @click="selectEvent(event)"
         @join="joinEvent(event)"
         @leave="leaveEvent(event)"
+        @rsvp="handleRSVP"
       />
     </div>
 
@@ -65,6 +66,7 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
 import { useEvent } from '../composables/eventProvider'
+import { useRSVP } from '../composables/rsvpService'
 import EventListItem from './EventListItem.vue'
 import EventDetailModal from './EventDetailModal.vue'
 import EventCreateModal from './EventCreateModal.vue'
@@ -74,6 +76,7 @@ import type { Event, User } from '../types/event'
 const props = defineProps<{
   user?: any
   sphere?: any
+  filter?: string
 }>()
 
 const {
@@ -86,9 +89,11 @@ const {
   leaveEvent: leaveEventFn
 } = useEvent()
 
+const { rsvp } = useRSVP()
+
 const showCreateModal = ref(false)
 const selectedEvent = ref<Event | null>(null)
-const filter = ref('upcoming')
+const filter = ref(props.filter || 'upcoming')
 
 const currentUser = computed<User>(() => ({
   pub: props.user?.is?.pub || 'anonymous',
@@ -168,6 +173,15 @@ const onEventCreated = (eventId: string) => {
 
 const onEventCancelled = () => {
   console.log('Event creation cancelled')
+}
+
+const handleRSVP = async (event: Event, status: 'attending' | 'maybe' | 'not_attending') => {
+  try {
+    await rsvp(event.id, status, event)
+    console.log('RSVP successful:', event.id, status)
+  } catch (error) {
+    console.error('RSVP failed:', error)
+  }
 }
 </script>
 

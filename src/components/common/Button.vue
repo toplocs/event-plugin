@@ -7,6 +7,8 @@
 </template>
 
 <script setup lang="ts">
+import { router } from '@/composables/useRouter';
+
 const props = defineProps({
   href: {
     type: String,
@@ -17,7 +19,9 @@ const emit = defineEmits(['useAction'])
 
 const useAction = () => {
  if (props.href) {
-  router.push(`/${props.href}`)
+  router.navigate(`/${props.href}`)
+ } else {
+  emit('useAction')
  }
 };
 </script>

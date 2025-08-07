@@ -26,4 +26,10 @@ const pluginConfig: BasePluginConfig = {
   ]
 };
 
+// Export router SDK for testing
+export { routerSDK, RouterTestUtils } from './sdk/routerSDK';
+
+// Export router composable
+export { router } from './composables/useRouter';
+
 export default pluginConfig;
